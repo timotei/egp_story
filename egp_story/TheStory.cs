@@ -20,15 +20,17 @@ using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
+using egp_story.Levels;
 
 namespace egp_story
 {
-	public class Game1 : Microsoft.Xna.Framework.Game
+	public class TheStory : Microsoft.Xna.Framework.Game
 	{
-		GraphicsDeviceManager graphics;
-		SpriteBatch spriteBatch;
+		private GraphicsDeviceManager graphics;
+		private SpriteBatch spriteBatch;
+		private StoryLevel _currentLevel;
 
-		public Game1( )
+		public TheStory( )
 		{
 			graphics = new GraphicsDeviceManager( this );
 			Content.RootDirectory = "Content";
