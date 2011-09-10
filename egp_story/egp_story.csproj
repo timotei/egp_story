@@ -110,7 +110,7 @@
     <Compile Include="Content.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Program.cs" />
-    <Compile Include="Game1.cs" />
+    <Compile Include="TheStory.cs" />
     <Compile Include="Levels\StoryLevel.cs" />
   </ItemGroup>
   <ItemGroup>
