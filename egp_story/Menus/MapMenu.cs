@@ -11,22 +11,42 @@
    See the COPYING file for more details.
 */
 
+using System;
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
+
 namespace egp_story.Menus
 {
 	public class MapMenu : IMenu
 	{
+		private Rectangle _targetRectangle;
+
+		public MapMenu( )
+		{
+			_targetRectangle = new Rectangle( 0, 0, TheStory.GAME_WIDTH, Assets.WorldMapTexture.Height );
+		}
+
 		#region Menu Members
 
-		public void Update( Microsoft.Xna.Framework.GameTime gameTime )
+		public void Update( GameTime gameTime )
 		{
-			throw new System.NotImplementedException( );
+			if ( Keyboard.GetState( ).IsKeyDown( Keys.Down ) ) {
+				_targetRectangle.Y -= 10;
+			}
+			else if ( Keyboard.GetState( ).IsKeyDown( Keys.Up ) ) {
+				_targetRectangle.Y += 10;
+			}
+			Console.WriteLine( _targetRectangle.Y );
+
+			_targetRectangle.Y = ( int ) MathHelper.Clamp( _targetRectangle.Y,
+				TheStory.GAME_HEIGHT - Assets.WorldMapTexture.Height, 0 );
 		}
 
-		public void Draw( Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch, Microsoft.Xna.Framework.GameTime gameTime )
+		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
-			throw new System.NotImplementedException( );
+			spriteBatch.Draw( Assets.WorldMapTexture, _targetRectangle, Color.White );
 		}
-
 		#endregion
 	}
 }

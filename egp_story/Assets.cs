@@ -18,10 +18,12 @@ namespace egp_story
 	public class Assets
 	{
 		public static SpriteFont MainFont { get; private set; }
+		public static Texture2D WorldMapTexture { get; private set; }
 
 		public static void LoadAssets( ContentManager content )
 		{
 			MainFont = content.Load<SpriteFont>( "Arial" );
+			WorldMapTexture = content.Load<Texture2D>( "WorldMap" );
 		}
 	}
 }

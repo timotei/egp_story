@@ -20,6 +20,9 @@ namespace egp_story
 {
 	public class TheStory : Microsoft.Xna.Framework.Game
 	{
+		public const int GAME_WIDTH = 950;
+		public const int GAME_HEIGHT = 600;
+
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 
@@ -35,7 +38,11 @@ namespace egp_story
 		protected override void Initialize( )
 		{
 			base.Initialize( );
+
 			IsMouseVisible = true;
+			graphics.PreferredBackBufferHeight = GAME_HEIGHT;
+			graphics.PreferredBackBufferWidth = GAME_WIDTH;
+			graphics.ApplyChanges( );
 		}
 
 		protected override void LoadContent( )
