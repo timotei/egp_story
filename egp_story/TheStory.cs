@@ -34,6 +34,7 @@ namespace egp_story
 		protected override void Initialize( )
 		{
 			base.Initialize( );
+			IsMouseVisible = true;
 		}
 
 		protected override void LoadContent( )

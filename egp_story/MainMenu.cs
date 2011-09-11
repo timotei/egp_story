@@ -5,11 +5,11 @@ namespace egp_story
 {
 	public class MainMenu : Menu
 	{
-		public override void Update( GameTime gameTime )
+		public void Update( GameTime gameTime )
 		{
 
 		}
-		public override void Draw( SpriteBatch spriteBatch, GameTime gameTime )
+		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
 
 		}
