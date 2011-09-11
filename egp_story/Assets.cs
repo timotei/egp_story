@@ -14,7 +14,6 @@ namespace egp_story
 		public static void LoadAssets( ContentManager content )
 		{
 			MainFont = content.Load<SpriteFont>( "Arial" );
-
 		}
 	}
 }

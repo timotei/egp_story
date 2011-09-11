@@ -1,3 +1,4 @@
+using egp_story.Levels;
 /*
    Copyright (C) 2011 by Timotei Dolean <timotei21@gmail.com>
 
@@ -10,17 +11,9 @@
 
    See the COPYING file for more details.
 */
-using System;
-using System.Collections.Generic;
-using System.Linq;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Audio;
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
-using Microsoft.Xna.Framework.Media;
-using egp_story.Levels;
 
 namespace egp_story
 {
@@ -28,7 +21,9 @@ namespace egp_story
 	{
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
+
 		private StoryLevel _currentLevel;
+		private Menu _currentMenu;
 
 		public TheStory( )
 		{
@@ -45,7 +40,7 @@ namespace egp_story
 		{
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch( GraphicsDevice );
-
+			Assets.LoadAssets( Content );
 		}
 
 		protected override void UnloadContent( )
@@ -55,22 +50,34 @@ namespace egp_story
 
 		protected override void Update( GameTime gameTime )
 		{
-			// Allows the game to exit
-			if ( GamePad.GetState( PlayerIndex.One ).Buttons.Back == ButtonState.Pressed )
-				this.Exit( );
-
-			// TODO: Add your update logic here
+			if ( Keyboard.GetState( ).IsKeyDown( Keys.Escape ) )
+				Exit( );
 
 			base.Update( gameTime );
+
+			if ( _currentLevel != null ) {
+				_currentLevel.Update( gameTime );
+			}
+			else if ( _currentMenu != null ) {
+				_currentMenu.Update( gameTime );
+			}
 		}
 
 		protected override void Draw( GameTime gameTime )
 		{
 			GraphicsDevice.Clear( Color.CornflowerBlue );
 
-			// TODO: Add your drawing code here
-
+			spriteBatch.Begin( );
 			base.Draw( gameTime );
+
+			if ( _currentLevel != null ) {
+				_currentLevel.Draw( spriteBatch, gameTime );
+			}
+			else if ( _currentMenu != null ) {
+				_currentMenu.Draw( spriteBatch, gameTime );
+			}
+
+			spriteBatch.End( );
 		}
 	}
 }
