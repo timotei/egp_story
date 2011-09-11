@@ -10,18 +10,14 @@
 
    See the COPYING file for more details.
 */
-using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace egp_story
+namespace egp_story.Levels
 {
-	public class Assets
+	public interface IStoryLevel
 	{
-		public static SpriteFont MainFont { get; private set; }
-
-		public static void LoadAssets( ContentManager content )
-		{
-			MainFont = content.Load<SpriteFont>( "Arial" );
-		}
+		void Update( GameTime gameTime );
+		void Draw( SpriteBatch spriteBatch, GameTime gameTime );
 	}
 }

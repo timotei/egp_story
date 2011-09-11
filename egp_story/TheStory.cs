@@ -1,4 +1,3 @@
-using egp_story.Levels;
 /*
    Copyright (C) 2011 by Timotei Dolean <timotei21@gmail.com>
 
@@ -11,6 +10,8 @@ using egp_story.Levels;
 
    See the COPYING file for more details.
 */
+using egp_story.Levels;
+using egp_story.Menus;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -22,8 +23,8 @@ namespace egp_story
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 
-		private StoryLevel _currentLevel;
-		private Menu _currentMenu;
+		private IStoryLevel _currentLevel;
+		private IMenu _currentMenu;
 
 		public TheStory( )
 		{
@@ -42,11 +43,8 @@ namespace egp_story
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch( GraphicsDevice );
 			Assets.LoadAssets( Content );
-		}
 
-		protected override void UnloadContent( )
-		{
-			// TODO: Unload any non ContentManager content here
+			_currentMenu = new MapMenu( );
 		}
 
 		protected override void Update( GameTime gameTime )

@@ -10,14 +10,23 @@
 
    See the COPYING file for more details.
 */
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
-namespace egp_story.Levels
+namespace egp_story.Menus
 {
-	public interface StoryLevel
+	public class MapMenu : IMenu
 	{
-		void Update( GameTime gameTime );
-		void Draw( SpriteBatch spriteBatch, GameTime gameTime );
+		#region Menu Members
+
+		public void Update( Microsoft.Xna.Framework.GameTime gameTime )
+		{
+			throw new System.NotImplementedException( );
+		}
+
+		public void Draw( Microsoft.Xna.Framework.Graphics.SpriteBatch spriteBatch, Microsoft.Xna.Framework.GameTime gameTime )
+		{
+			throw new System.NotImplementedException( );
+		}
+
+		#endregion
 	}
 }

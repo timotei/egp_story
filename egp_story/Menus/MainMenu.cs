@@ -10,18 +10,20 @@
 
    See the COPYING file for more details.
 */
-using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace egp_story
+namespace egp_story.Menus
 {
-	public class Assets
+	public class MainMenu : IMenu
 	{
-		public static SpriteFont MainFont { get; private set; }
-
-		public static void LoadAssets( ContentManager content )
+		public void Update( GameTime gameTime )
 		{
-			MainFont = content.Load<SpriteFont>( "Arial" );
+
+		}
+		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
+		{
+
 		}
 	}
 }
