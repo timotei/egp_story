@@ -10,23 +10,17 @@
 
    See the COPYING file for more details.
 */
-using Microsoft.Xna.Framework.Content;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
 namespace egp_story
 {
-	public class Assets
+	public static class SpriteBatchExtensions
 	{
-		public static SpriteFont MainFont { get; private set; }
-		public static Texture2D WorldMapTexture { get; private set; }
-		public static Texture2D Dot { get; private set; }
-
-		public static void LoadAssets( ContentManager content )
+		public static void Draw( this SpriteBatch spriteBatch, Texture2D texture, Vector2 position,
+			Vector2 origin, Color color )
 		{
-			MainFont = content.Load<SpriteFont>( "Arial" );
-			WorldMapTexture = content.Load<Texture2D>( "WorldMap" );
-
-			Dot = content.Load<Texture2D>( "dot" );
+			spriteBatch.Draw( texture, position, null, color, 0, origin, 1f, SpriteEffects.None, 0 );
 		}
 	}
 }

@@ -10,23 +10,15 @@
 
    See the COPYING file for more details.
 */
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework;
 
 namespace egp_story
 {
-	public class Assets
+	public static class PointExtensions
 	{
-		public static SpriteFont MainFont { get; private set; }
-		public static Texture2D WorldMapTexture { get; private set; }
-		public static Texture2D Dot { get; private set; }
-
-		public static void LoadAssets( ContentManager content )
+		public static Vector2 ToVector2( this Point point )
 		{
-			MainFont = content.Load<SpriteFont>( "Arial" );
-			WorldMapTexture = content.Load<Texture2D>( "WorldMap" );
-
-			Dot = content.Load<Texture2D>( "dot" );
+			return new Vector2( point.X, point.Y );
 		}
 	}
 }

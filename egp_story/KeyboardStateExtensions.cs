@@ -10,23 +10,22 @@
 
    See the COPYING file for more details.
 */
-using Microsoft.Xna.Framework.Content;
-using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
 namespace egp_story
 {
-	public class Assets
+	public static class KeyboardStateExtensions
 	{
-		public static SpriteFont MainFont { get; private set; }
-		public static Texture2D WorldMapTexture { get; private set; }
-		public static Texture2D Dot { get; private set; }
+		private static KeyboardState _lastState;
 
-		public static void LoadAssets( ContentManager content )
+		public static void UpdateState( this KeyboardState state )
 		{
-			MainFont = content.Load<SpriteFont>( "Arial" );
-			WorldMapTexture = content.Load<Texture2D>( "WorldMap" );
+			_lastState = state;
+		}
 
-			Dot = content.Load<Texture2D>( "dot" );
+		public static bool IsKeyDown2( this KeyboardState currentState, Keys key )
+		{
+			return currentState.IsKeyDown( key ) && _lastState.IsKeyUp( key );
 		}
 	}
 }

@@ -67,6 +67,8 @@ namespace egp_story
 			else if ( _currentMenu != null ) {
 				_currentMenu.Update( gameTime );
 			}
+
+			Keyboard.GetState( ).UpdateState( );
 		}
 
 		protected override void Draw( GameTime gameTime )
