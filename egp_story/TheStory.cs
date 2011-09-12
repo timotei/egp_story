@@ -51,7 +51,7 @@ namespace egp_story
 			spriteBatch = new SpriteBatch( GraphicsDevice );
 			Assets.LoadAssets( Content );
 
-			_currentMenu = new MapMenu( );
+			_currentLevel = new DarkvilleFarmsLevel( );
 		}
 
 		protected override void Update( GameTime gameTime )

@@ -20,6 +20,7 @@ namespace egp_story
 		public static SpriteFont MainFont { get; private set; }
 		public static Texture2D WorldMapTexture { get; private set; }
 		public static Texture2D Dot { get; private set; }
+		public static Texture2D SpriteAnim { get; private set; }
 
 		public static void LoadAssets( ContentManager content )
 		{
@@ -27,6 +28,7 @@ namespace egp_story
 			WorldMapTexture = content.Load<Texture2D>( "WorldMap" );
 
 			Dot = content.Load<Texture2D>( "dot" );
+			SpriteAnim = content.Load<Texture2D>( "test_sprite" );
 		}
 	}
 }
