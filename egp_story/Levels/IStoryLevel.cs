@@ -10,14 +10,10 @@
 
    See the COPYING file for more details.
 */
-using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 
 namespace egp_story.Levels
 {
-	public interface IStoryLevel
+	public interface IStoryLevel : IUpdateable, IDrawable
 	{
-		void Update( GameTime gameTime );
-		void Draw( SpriteBatch spriteBatch, GameTime gameTime );
 	}
 }

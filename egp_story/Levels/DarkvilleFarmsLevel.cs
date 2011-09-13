@@ -19,23 +19,26 @@ namespace egp_story.Levels
 	{
 		#region IStoryLevel Members
 
-		private AnimatedSprite _sprite;
+		private Player _player;
 
 		public DarkvilleFarmsLevel( )
 		{
-			_sprite = new AnimatedSprite( );
+			_player = new Player( );
+
+			_player.AttackEastAnim = new AnimatedSprite( Assets.SilverboltShootEast, 10, 10 );
+			_player.AttackSouthAnim = new AnimatedSprite( Assets.SilverboltShootSouth, 10, 10 );
+			_player.AttackNorthAnim = new AnimatedSprite( Assets.SilverboltShootNorth, 10, 10 );
 		}
 
 		public void Update( GameTime gameTime )
 		{
-			_sprite.Update( gameTime );
+			_player.Update( gameTime );
 		}
 
 		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
-			_sprite.Draw( spriteBatch, gameTime );
+			_player.Draw( spriteBatch, gameTime );
 		}
-
 		#endregion
 	}
 }

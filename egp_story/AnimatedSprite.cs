@@ -11,8 +11,6 @@ namespace egp_story
 		private int _increment;
 		private float _totalElapsed;
 
-		public Vector2 Position { get; set; }
-
 		public AnimatedSprite( Texture2D texture, int spriteCount, int speed )
 		{
 			_texture = texture;
@@ -36,9 +34,10 @@ namespace egp_story
 			}
 		}
 
-		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
+		public void Draw( SpriteBatch spriteBatch, Vector2 position, GameTime gameTime, SpriteEffects effects )
 		{
-			spriteBatch.Draw( _texture, Position, _sourceRectangle, Color.White );
+			spriteBatch.Draw( _texture, position, _sourceRectangle, Color.White, 0f, Vector2.Zero, 1f,
+				effects, 0 );
 		}
 
 		/// <summary>

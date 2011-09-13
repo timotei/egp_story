@@ -11,9 +11,13 @@
    See the COPYING file for more details.
 */
 
-namespace egp_story.Menus
+using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
+
+namespace egp_story
 {
-	public interface IMenu : IDrawable, IUpdateable
+	public interface IDrawable
 	{
+		void Draw( SpriteBatch spriteBatch, GameTime gameTime );
 	}
 }

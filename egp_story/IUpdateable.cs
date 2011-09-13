@@ -11,9 +11,12 @@
    See the COPYING file for more details.
 */
 
-namespace egp_story.Menus
+using Microsoft.Xna.Framework;
+
+namespace egp_story
 {
-	public interface IMenu : IDrawable, IUpdateable
+	public interface IUpdateable
 	{
+		void Update( GameTime gameTime );
 	}
 }
