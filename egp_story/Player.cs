@@ -34,8 +34,25 @@ namespace egp_story
 
 		public AnimatedSprite CurrentAnimation { get; set; }
 
-		public Player( CardinalDirection initialFacingDirection )
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="initialFacingDirection"></param>
+		/// <param name="attackAnims">The order of the animations: North, South, East</param>
+		/// <param name="walkAnims">The order of the animations: North, South, East</param>
+		public Player( CardinalDirection initialFacingDirection, AnimatedSprite[] attackAnims,
+			AnimatedSprite[] walkAnims )
 		{
+			AttackNorthAnim = attackAnims[0];
+			AttackSouthAnim = attackAnims[1];
+			AttackEastAnim = attackAnims[2];
+
+			WalkNorthAnim = walkAnims[0];
+			WalkSouthAnim = walkAnims[1];
+			WalkEastAnim = walkAnims[2];
+
+			FacingDirection = initialFacingDirection;
+			ReplaceCurrentAnimation( );
 		}
 
 		private void ReplaceCurrentAnimation( )
