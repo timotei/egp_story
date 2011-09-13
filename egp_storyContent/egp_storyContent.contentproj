@@ -63,8 +63,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="test_sprite.png">
-      <Name>test_sprite</Name>
+    <Compile Include="gfx\silverbolt_shoot_n.png">
+      <Name>silverbolt_shoot_n</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gfx\silverbolt_shoot_s.png">
+      <Name>silverbolt_shoot_s</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gfx\silverbolt_shoot_e.png">
+      <Name>silverbolt_shoot_e</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
