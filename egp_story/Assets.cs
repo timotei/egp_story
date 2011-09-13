@@ -29,6 +29,10 @@ namespace egp_story
 		public static Texture2D SilverboltWalkNorth { get; private set; }
 		public static Texture2D SilverboltWalkEast { get; private set; }
 
+		public static Texture2D SilverboltArrowNorth { get; private set; }
+		public static Texture2D SilverboltArrowSouth { get; private set; }
+		public static Texture2D SilverboltArrowEast { get; private set; }
+
 		public static void LoadAssets( ContentManager content )
 		{
 			MainFont = content.Load<SpriteFont>( "Arial" );
@@ -36,13 +40,17 @@ namespace egp_story
 
 			Dot = content.Load<Texture2D>( "dot" );
 
-			SilverboltShootSouth = content.Load<Texture2D>( "gfx/silverbolt_shoot_s" );
-			SilverboltShootNorth = content.Load<Texture2D>( "gfx/silverbolt_shoot_n" );
-			SilverboltShootEast = content.Load<Texture2D>( "gfx/silverbolt_shoot_e" );
+			SilverboltShootSouth = content.Load<Texture2D>( "gfx/silverbolt/shoot_s" );
+			SilverboltShootNorth = content.Load<Texture2D>( "gfx/silverbolt/shoot_n" );
+			SilverboltShootEast = content.Load<Texture2D>( "gfx/silverbolt/shoot_e" );
 
-			SilverboltWalkSouth = content.Load<Texture2D>( "gfx/silverbolt_walk_s" );
-			SilverboltWalkNorth = content.Load<Texture2D>( "gfx/silverbolt_walk_n" );
-			SilverboltWalkEast = content.Load<Texture2D>( "gfx/silverbolt_walk_e" );
+			SilverboltWalkSouth = content.Load<Texture2D>( "gfx/silverbolt/walk_s" );
+			SilverboltWalkNorth = content.Load<Texture2D>( "gfx/silverbolt/walk_n" );
+			SilverboltWalkEast = content.Load<Texture2D>( "gfx/silverbolt/walk_e" );
+
+			SilverboltArrowEast = content.Load<Texture2D>( "gfx/silverbolt/arrow_e" );
+			SilverboltArrowNorth = content.Load<Texture2D>( "gfx/silverbolt/arrow_n" );
+			SilverboltArrowSouth = content.Load<Texture2D>( "gfx/silverbolt/arrow_s" );
 		}
 	}
 }

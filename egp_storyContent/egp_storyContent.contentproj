@@ -63,41 +63,70 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gfx\silverbolt_shoot_n.png">
-      <Name>silverbolt_shoot_n</Name>
+    <Compile Include="gfx\silverbolt\arrow_e.png">
+      <Name>arrow_e</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\silverbolt\arrow_n.png">
+      <Name>arrow_n</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\silverbolt\arrow_s.png">
+      <Name>arrow_s</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\silverbolt\shoot_e.png">
+      <Name>shoot_e</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\silverbolt\shoot_n.png">
+      <Name>shoot_n</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\silverbolt\shoot_s.png">
+      <Name>shoot_s</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\silverbolt\walk_e.png">
+      <Name>walk_e</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\silverbolt\walk_n.png">
+      <Name>walk_n</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\silverbolt\walk_s.png">
+      <Name>walk_s</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gfx\silverbolt_shoot_s.png">
-      <Name>silverbolt_shoot_s</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="gfx\silverbolt\shoot_e.pdn">
+      <Name>shoot_e</Name>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gfx\silverbolt_shoot_e.png">
-      <Name>silverbolt_shoot_e</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="gfx\silverbolt\shoot_n.pdn">
+      <Name>shoot_n</Name>
     </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gfx\silverbolt_walk_e.png">
-      <Name>silverbolt_walk_e</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="gfx\silverbolt\shoot_s.pdn">
+      <Name>shoot_s</Name>
     </Compile>
-    <Compile Include="gfx\silverbolt_walk_n.png">
-      <Name>silverbolt_walk_n</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="gfx\silverbolt\walk_e.pdn">
+      <Name>walk_e</Name>
     </Compile>
-    <Compile Include="gfx\silverbolt_walk_s.png">
-      <Name>silverbolt_walk_s</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
+    <Compile Include="gfx\silverbolt\walk_n.pdn">
+      <Name>walk_n</Name>
+    </Compile>
+    <Compile Include="gfx\silverbolt\walk_s.pdn">
+      <Name>walk_s</Name>
     </Compile>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
