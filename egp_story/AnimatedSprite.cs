@@ -16,7 +16,7 @@ namespace egp_story
 		public AnimatedSprite( )
 		{
 			_texture = Assets.SpriteAnim;
-			_count = 15;
+			_count = 10;
 			_speed = 100;
 
 			_increment = _texture.Width / _count;
@@ -27,7 +27,8 @@ namespace egp_story
 		{
 			if ( ( gameTime.TotalGameTime - _currentGameTime ).Milliseconds > _speed ) {
 
-				_sourceRectangle.X = ( _sourceRectangle.X + _increment ) % ( _texture.Width - 2 );
+				_sourceRectangle.X = ( _sourceRectangle.X + _increment ) % ( _texture.Width );
+				Console.WriteLine( _sourceRectangle.X );
 
 				_currentGameTime = gameTime.TotalGameTime;
 			}
