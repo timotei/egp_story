@@ -28,7 +28,37 @@ namespace egp_story
 		public AnimatedSprite AttackSouthAnim { get; set; }
 		public AnimatedSprite AttackEastAnim { get; set; }
 
+		public AnimatedSprite WalkNorthAnim { get; set; }
+		public AnimatedSprite WalkSouthAnim { get; set; }
+		public AnimatedSprite WalkEastAnim { get; set; }
+
 		public AnimatedSprite CurrentAnimation { get; set; }
+
+		public Player( CardinalDirection initialFacingDirection )
+		{
+		}
+
+		private void ReplaceCurrentAnimation( )
+		{
+			StopAnimation( );
+
+			switch ( FacingDirection ) {
+				case CardinalDirection.EAST:
+					CurrentAnimation = _attacking ? AttackEastAnim : WalkEastAnim;
+					break;
+				case CardinalDirection.WEST:
+					CurrentAnimation = _attacking ? AttackEastAnim : WalkEastAnim;
+					break;
+				case CardinalDirection.SOUTH:
+					CurrentAnimation = _attacking ? AttackSouthAnim : WalkSouthAnim;
+					break;
+				case CardinalDirection.NORTH:
+					CurrentAnimation = _attacking ? AttackNorthAnim : WalkNorthAnim;
+					break;
+			}
+
+			CurrentAnimation.Playing = true;
+		}
 
 		#region IDrawable Members
 
@@ -44,47 +74,51 @@ namespace egp_story
 
 		public void Update( GameTime gameTime )
 		{
-			// for the moment
-			_attacking = true;
-
 			KeyboardState keys = Keyboard.GetState( );
-			Vector2 deplacement = Vector2.Zero;
-			if ( keys.IsKeyDown2( Keys.Left ) ) {
-				StopAnimation( );
-
-				FacingDirection = CardinalDirection.WEST;
-				CurrentAnimation = _attacking ? AttackEastAnim : null;
-				deplacement.X = -10;
+			if ( !_attacking && keys.IsKeyDown2( Keys.Space ) ) {
+				_attacking = true;
+				ReplaceCurrentAnimation( );
 			}
-			else if ( keys.IsKeyDown2( Keys.Right ) ) {
-				StopAnimation( );
-
-				FacingDirection = CardinalDirection.EAST;
-				CurrentAnimation = _attacking ? AttackEastAnim : null;
-				deplacement.X = 10;
+			else if ( _attacking && CurrentAnimation.Finished ) {
+				_attacking = false;
+				ReplaceCurrentAnimation( );
 			}
-			else if ( keys.IsKeyDown2( Keys.Down ) ) {
-				StopAnimation( );
 
-				FacingDirection = CardinalDirection.SOUTH;
-				CurrentAnimation = _attacking ? AttackSouthAnim : null;
-				deplacement.Y = 10;
-			}
-			else if ( keys.IsKeyDown2( Keys.Up ) ) {
-				StopAnimation( );
+			// cannot move while attacking
+			if ( !_attacking ) {
+				Vector2 deplacement = Vector2.Zero;
+				if ( keys.IsKeyDown( Keys.Left ) ) {
+					FacingDirection = CardinalDirection.WEST;
+					deplacement.X = -3;
 
-				FacingDirection = CardinalDirection.NORTH;
-				CurrentAnimation = _attacking ? AttackNorthAnim : null;
-				deplacement.Y = -10;
+					ReplaceCurrentAnimation( );
+				}
+				else if ( keys.IsKeyDown( Keys.Right ) ) {
+					FacingDirection = CardinalDirection.EAST;
+					deplacement.X = 3;
+
+					ReplaceCurrentAnimation( );
+				}
+				else if ( keys.IsKeyDown( Keys.Down ) ) {
+					FacingDirection = CardinalDirection.SOUTH;
+					deplacement.Y = 3;
+
+					ReplaceCurrentAnimation( );
+				}
+				else if ( keys.IsKeyDown( Keys.Up ) ) {
+					FacingDirection = CardinalDirection.NORTH;
+					deplacement.Y = -3;
+
+					ReplaceCurrentAnimation( );
+				}
+
+				Position += deplacement;
 			}
 
 			if ( CurrentAnimation != null ) {
-				CurrentAnimation.Playing = true;
-
 				CurrentAnimation.Update( gameTime );
 			}
 
-			Position += deplacement;
 		}
 
 		private void StopAnimation( )

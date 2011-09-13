@@ -23,11 +23,15 @@ namespace egp_story.Levels
 
 		public DarkvilleFarmsLevel( )
 		{
-			_player = new Player( );
+			_player = new Player( CardinalDirection.EAST );
 
 			_player.AttackEastAnim = new AnimatedSprite( Assets.SilverboltShootEast, 10, 10 );
 			_player.AttackSouthAnim = new AnimatedSprite( Assets.SilverboltShootSouth, 10, 10 );
 			_player.AttackNorthAnim = new AnimatedSprite( Assets.SilverboltShootNorth, 10, 10 );
+
+			_player.WalkEastAnim = new AnimatedSprite( Assets.SilverboltWalkEast, 2, 10 );
+			_player.WalkSouthAnim = new AnimatedSprite( Assets.SilverboltWalkSouth, 2, 10 );
+			_player.WalkNorthAnim = new AnimatedSprite( Assets.SilverboltWalkNorth, 2, 10 );
 		}
 
 		public void Update( GameTime gameTime )

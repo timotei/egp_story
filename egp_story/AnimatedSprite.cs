@@ -10,6 +10,7 @@ namespace egp_story
 		private float _fps;
 		private int _increment;
 		private float _totalElapsed;
+		public bool Finished { get; set; }
 
 		public AnimatedSprite( Texture2D texture, int spriteCount, int speed )
 		{
@@ -31,6 +32,11 @@ namespace egp_story
 				_sourceRectangle.X = ( _sourceRectangle.X + _increment ) % ( _texture.Width );
 
 				_totalElapsed -= _fps;
+
+				// restarted.
+				if ( _sourceRectangle.X == 0 ) {
+					Finished = true;
+				}
 			}
 		}
 
@@ -52,6 +58,8 @@ namespace egp_story
 		{
 			_totalElapsed = 0;
 			_sourceRectangle.X = 0;
+
+			Finished = false;
 		}
 	}
 }

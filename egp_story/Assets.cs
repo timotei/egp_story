@@ -25,6 +25,10 @@ namespace egp_story
 		public static Texture2D SilverboltShootNorth { get; private set; }
 		public static Texture2D SilverboltShootEast { get; private set; }
 
+		public static Texture2D SilverboltWalkSouth { get; private set; }
+		public static Texture2D SilverboltWalkNorth { get; private set; }
+		public static Texture2D SilverboltWalkEast { get; private set; }
+
 		public static void LoadAssets( ContentManager content )
 		{
 			MainFont = content.Load<SpriteFont>( "Arial" );
@@ -35,6 +39,10 @@ namespace egp_story
 			SilverboltShootSouth = content.Load<Texture2D>( "gfx/silverbolt_shoot_s" );
 			SilverboltShootNorth = content.Load<Texture2D>( "gfx/silverbolt_shoot_n" );
 			SilverboltShootEast = content.Load<Texture2D>( "gfx/silverbolt_shoot_e" );
+
+			SilverboltWalkSouth = content.Load<Texture2D>( "gfx/silverbolt_walk_s" );
+			SilverboltWalkNorth = content.Load<Texture2D>( "gfx/silverbolt_walk_n" );
+			SilverboltWalkEast = content.Load<Texture2D>( "gfx/silverbolt_walk_e" );
 		}
 	}
 }
