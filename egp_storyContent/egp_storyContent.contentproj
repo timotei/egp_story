@@ -109,26 +109,6 @@
       <Processor>TextureProcessor</Processor>
     </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gfx\silverbolt\shoot_e.pdn">
-      <Name>shoot_e</Name>
-    </Compile>
-    <Compile Include="gfx\silverbolt\shoot_n.pdn">
-      <Name>shoot_n</Name>
-    </Compile>
-    <Compile Include="gfx\silverbolt\shoot_s.pdn">
-      <Name>shoot_s</Name>
-    </Compile>
-    <Compile Include="gfx\silverbolt\walk_e.pdn">
-      <Name>walk_e</Name>
-    </Compile>
-    <Compile Include="gfx\silverbolt\walk_n.pdn">
-      <Name>walk_n</Name>
-    </Compile>
-    <Compile Include="gfx\silverbolt\walk_s.pdn">
-      <Name>walk_s</Name>
-    </Compile>
-  </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Microsoft\XNA Game Studio\$(XnaFrameworkVersion)\Microsoft.Xna.GameStudio.ContentPipeline.targets" />
   <!--  To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
