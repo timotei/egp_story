@@ -12,7 +12,9 @@ namespace egp_story
 		private float _totalElapsed;
 
 		public Texture2D Texture { get { return _texture; } }
-		public bool Finished { get; set; }
+		public Vector2 FrameSize { get; private set; }
+
+		public bool Finished { get; private set; }
 
 		public AnimatedSprite( Texture2D texture, int spriteCount, int speed )
 		{
@@ -20,6 +22,7 @@ namespace egp_story
 			_fps = ( float ) 1 / speed;
 
 			_increment = _texture.Width / spriteCount;
+			FrameSize = new Vector2( _increment, _texture.Height );
 			_sourceRectangle = new Rectangle( 0, 0, _increment, _texture.Height );
 		}
 

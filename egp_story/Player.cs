@@ -144,7 +144,7 @@ namespace egp_story
 				if ( projectileAnim != null )
 					_projectilesShot.Enqueue( new Projectile( ) {
 						Animation = projectileAnim,
-						Position = Position + CurrentAnimation.Texture.Bounds.Center.ToVector2( ),
+						Position = Position + CurrentAnimation.FrameSize / 2,
 						Velocity = FacingDirection.ToVelocity( )
 					} );
 			}
