@@ -144,7 +144,7 @@ namespace egp_story
 				if ( projectileAnim != null )
 					_projectilesShot.Enqueue( new Projectile( ) {
 						Animation = projectileAnim,
-						Position = Position + CurrentAnimation.FrameSize / 2,
+						Position = Position + CurrentAnimation.FrameBoundingBox.Size( ) / 2,
 						Velocity = FacingDirection.ToVelocity( )
 					} );
 			}
@@ -172,10 +172,39 @@ namespace egp_story
 				if ( moved ) {
 					ReplaceCurrentAnimation( );
 					// check if we can move there.
-					bool canMove = false;
+					Vector2 newPosition = ( Position + FacingDirection.ToVelocity( ) * 3 );
+					Rectangle newBoundingBox = CurrentAnimation.FrameBoundingBox;
+					newBoundingBox.Offset( ( int ) newPosition.X, ( int ) newPosition.Y );
 
-					if ( canMove ) {
-						Position += FacingDirection.ToVelocity( ) * 3;
+					if ( levelMap.Mask.Bounds.Contains( newBoundingBox ) ) {
+						bool canMove = false;
+						// upper left
+						Color texel = levelMap.GetTexel( newPosition.Y, newPosition.X );
+						if ( texel == Color.White || texel == Color.Black ) {
+
+							// upper right
+							texel = levelMap.GetTexel( newPosition.Y +
+								CurrentAnimation.FrameBoundingBox.Height, newPosition.X );
+							if ( texel == Color.White || texel == Color.Black ) {
+
+								// bottom right
+								texel = levelMap.GetTexel( newPosition.Y + CurrentAnimation.FrameBoundingBox.Height,
+									newPosition.X + CurrentAnimation.FrameBoundingBox.Width );
+								if ( texel == Color.White || texel == Color.Black ) {
+
+									// bottom left
+									texel = levelMap.GetTexel( newPosition.Y,
+										newPosition.X + CurrentAnimation.FrameBoundingBox.Width );
+									if ( texel == Color.White || texel == Color.Black ) {
+										canMove = true;
+									}
+								}
+							}
+						}
+
+						if ( canMove ) {
+							Position += FacingDirection.ToVelocity( ) * 3;
+						}
 					}
 				}
 			}

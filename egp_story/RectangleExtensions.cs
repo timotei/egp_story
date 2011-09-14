@@ -12,6 +12,7 @@
 */
 
 using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework.Graphics;
 
 namespace egp_story
 {
@@ -25,6 +26,23 @@ namespace egp_story
 		public static bool Contains( this Rectangle rectangle, ref Vector2 position )
 		{
 			return rectangle.Contains( ( int ) position.X, ( int ) position.Y );
+		}
+
+		public static Vector2 Size( this Rectangle rectangle )
+		{
+			return new Vector2( rectangle.Width, rectangle.Height );
+		}
+
+		public static void Draw( this Rectangle rectangle, SpriteBatch spriteBatch )
+		{
+			spriteBatch.DrawLine( new Vector2( rectangle.X, rectangle.Y ),
+				new Vector2( rectangle.X + rectangle.Width, rectangle.Y ), Color.Black );
+			spriteBatch.DrawLine( new Vector2( rectangle.X + rectangle.Width, rectangle.Y ),
+				new Vector2( rectangle.X + rectangle.Width, rectangle.Y + rectangle.Height ), Color.Black );
+			spriteBatch.DrawLine( new Vector2( rectangle.X + rectangle.Width, rectangle.Y + rectangle.Height ),
+				new Vector2( rectangle.X, rectangle.Y + rectangle.Height ), Color.Black );
+			spriteBatch.DrawLine( new Vector2( rectangle.X, rectangle.Y + rectangle.Height ),
+				new Vector2( rectangle.X, rectangle.Y ), Color.Black );
 		}
 	}
 }

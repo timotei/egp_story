@@ -12,7 +12,7 @@ namespace egp_story
 		private float _totalElapsed;
 
 		public Texture2D Texture { get { return _texture; } }
-		public Vector2 FrameSize { get; private set; }
+		public Rectangle FrameBoundingBox { get; private set; }
 
 		public bool Finished { get; private set; }
 
@@ -22,7 +22,7 @@ namespace egp_story
 			_fps = ( float ) 1 / speed;
 
 			_increment = _texture.Width / spriteCount;
-			FrameSize = new Vector2( _increment, _texture.Height );
+			FrameBoundingBox = new Rectangle( 0, 0, _increment, _texture.Height );
 			_sourceRectangle = new Rectangle( 0, 0, _increment, _texture.Height );
 		}
 
@@ -49,6 +49,12 @@ namespace egp_story
 		{
 			spriteBatch.Draw( _texture, position, _sourceRectangle, Color.White, 0f, Vector2.Zero, 1f,
 				effects, 0 );
+
+#if DEBUG
+			Rectangle boundingRect = FrameBoundingBox;
+			boundingRect.Offset( ( int ) position.X, ( int ) position.Y );
+			boundingRect.Draw( spriteBatch );
+#endif
 		}
 
 		/// <summary>

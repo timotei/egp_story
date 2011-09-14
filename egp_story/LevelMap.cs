@@ -44,6 +44,16 @@ namespace egp_story
 			}
 		}
 
+		public Color GetTexel( int row, int col )
+		{
+			return MaskData[row * Mask.Width + col];
+		}
+
+		public Color GetTexel( float row, float col )
+		{
+			return MaskData[( int ) row * Mask.Width + ( int ) col];
+		}
+
 		#region IDrawable Members
 
 		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )

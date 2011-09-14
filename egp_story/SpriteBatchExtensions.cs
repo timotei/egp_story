@@ -1,4 +1,5 @@
-﻿/*
+﻿using System;
+/*
    Copyright (C) 2011 by Timotei Dolean <timotei21@gmail.com>
 
    This program is free software; you can redistribute it and/or modify
@@ -38,5 +39,23 @@ namespace egp_story
 		{
 			spriteBatch.Draw( texture, destinationRectangle, Color.White );
 		}
+
+		public static void DrawLine( this SpriteBatch sprite, Vector2 start, Vector2 end, Color color )
+		{
+			DrawLine( sprite, start, end, color, 1 );
+		}
+
+		public static void DrawLine( this SpriteBatch sprite, Vector2 start, Vector2 end, Color color, int thickness )
+		{
+			int distance = ( int ) Vector2.Distance( start, end );
+			if ( distance > 1 ) {
+				float alpha = ( float ) Math.Atan2( end.Y - start.Y, end.X - start.X );
+				sprite.Draw( Assets.BlankPixel, new Rectangle( ( int ) start.X, ( int ) start.Y, distance, thickness ),
+							null, color, alpha, new Vector2( 0, 0 ), SpriteEffects.None, 0 );
+			}
+			else
+				sprite.Draw( Assets.BlankPixel, start, color );
+		}
+
 	}
 }

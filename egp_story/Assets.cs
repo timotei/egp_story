@@ -1,4 +1,5 @@
-﻿/*
+﻿using Microsoft.Xna.Framework;
+/*
    Copyright (C) 2011 by Timotei Dolean <timotei21@gmail.com>
 
    This program is free software; you can redistribute it and/or modify
@@ -18,6 +19,7 @@ namespace egp_story
 	public class Assets
 	{
 		public static SpriteFont MainFont { get; private set; }
+
 		public static Texture2D WorldMapTexture { get; private set; }
 		public static Texture2D Dot { get; private set; }
 
@@ -35,6 +37,11 @@ namespace egp_story
 
 		public static Texture2D DarkvilleFarmsBackground { get; private set; }
 		public static Texture2D DarkvilleFarmsBackgroundMask { get; private set; }
+
+		/// <summary>
+		/// A blank 1x1 pixel (used by default for drawing lines)
+		/// </summary>
+		public static Texture2D BlankPixel { get; private set; }
 
 		public static void LoadAssets( ContentManager content )
 		{
@@ -57,6 +64,15 @@ namespace egp_story
 
 			DarkvilleFarmsBackground = content.Load<Texture2D>( "gfx/levels/darkville_farms" );
 			DarkvilleFarmsBackgroundMask = content.Load<Texture2D>( "gfx/levels/darkville_farms_mask" );
+
+			GraphicsDeviceManager graphicsManager = ( GraphicsDeviceManager )
+				content.ServiceProvider.GetService( typeof( IGraphicsDeviceManager ) );
+
+			BlankPixel = new Texture2D( graphicsManager.GraphicsDevice, 1, 1 );
+			Color[] bPix = new Color[1 * 1];
+			BlankPixel.GetData<Color>( bPix );
+			bPix[0].R = bPix[0].G = bPix[0].B = bPix[0].A = 255;
+			BlankPixel.SetData<Color>( bPix );
 		}
 	}
 }
