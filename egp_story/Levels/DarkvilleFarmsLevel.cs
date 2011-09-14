@@ -31,9 +31,9 @@ namespace egp_story.Levels
 					new AnimatedSprite( Assets.SilverboltShootSouth, 10, 20 ),
 					new AnimatedSprite( Assets.SilverboltShootEast, 10, 20 ) },
 				new[] { 
-					new AnimatedSprite( Assets.SilverboltWalkNorth, 2, 10 ),
-					new AnimatedSprite( Assets.SilverboltWalkSouth, 2, 10 ),
-					new AnimatedSprite( Assets.SilverboltWalkEast, 2, 10 )},
+					new AnimatedSprite( Assets.SilverboltWalkNorth, 1, 10 ),
+					new AnimatedSprite( Assets.SilverboltWalkSouth, 1, 10 ),
+					new AnimatedSprite( Assets.SilverboltWalkEast, 1, 10 )},
 				new[] { 
 					new AnimatedSprite( Assets.SilverboltArrowNorth, 1, 1),
 					new AnimatedSprite( Assets.SilverboltArrowSouth, 1, 1),
