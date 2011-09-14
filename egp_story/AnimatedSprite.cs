@@ -10,6 +10,8 @@ namespace egp_story
 		private float _fps;
 		private int _increment;
 		private float _totalElapsed;
+
+		public Texture2D Texture { get { return _texture; } }
 		public bool Finished { get; set; }
 
 		public AnimatedSprite( Texture2D texture, int spriteCount, int speed )

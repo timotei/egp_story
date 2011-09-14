@@ -22,5 +22,21 @@ namespace egp_story
 		{
 			spriteBatch.Draw( texture, position, null, color, 0, origin, 1f, SpriteEffects.None, 0 );
 		}
+
+		public static void Draw( this SpriteBatch spriteBatch, Texture2D texture, Vector2 position,
+			Vector2 origin )
+		{
+			spriteBatch.Draw( texture, position, null, Color.White, 0, origin, 1f, SpriteEffects.None, 0 );
+		}
+
+		public static void Draw( this SpriteBatch spriteBatch, Texture2D texture, Vector2 position )
+		{
+			spriteBatch.Draw( texture, position, Color.White );
+		}
+
+		public static void Draw( this SpriteBatch spriteBatch, Texture2D texture, Rectangle destinationRectangle )
+		{
+			spriteBatch.Draw( texture, destinationRectangle, Color.White );
+		}
 	}
 }

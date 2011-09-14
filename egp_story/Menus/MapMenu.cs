@@ -94,7 +94,7 @@ namespace egp_story.Menus
 
 			// draw the location
 			spriteBatch.Draw( Assets.Dot, LOCATIONS[_currentLocation] + new Vector2( 0, _targetRectangle.Y ),
-				Assets.Dot.Bounds.Center.ToVector2( ), Color.White );
+				Assets.Dot.Bounds.Center.ToVector2( ) );
 		}
 		#endregion
 	}

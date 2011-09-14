@@ -43,6 +43,8 @@ namespace egp_story
 			graphics.PreferredBackBufferHeight = GAME_HEIGHT;
 			graphics.PreferredBackBufferWidth = GAME_WIDTH;
 			graphics.ApplyChanges( );
+
+			Services.AddService( typeof( GraphicsDeviceManager ), graphics );
 		}
 
 		protected override void LoadContent( )
@@ -51,7 +53,7 @@ namespace egp_story
 			spriteBatch = new SpriteBatch( GraphicsDevice );
 			Assets.LoadAssets( Content );
 
-			_currentLevel = new DarkvilleFarmsLevel( );
+			_currentLevel = new DarkvilleFarmsLevel( this );
 		}
 
 		protected override void Update( GameTime gameTime )
