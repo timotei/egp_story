@@ -33,6 +33,9 @@ namespace egp_story
 		public static Texture2D SilverboltArrowSouth { get; private set; }
 		public static Texture2D SilverboltArrowEast { get; private set; }
 
+		public static Texture2D DarkvilleFarmsBackground { get; private set; }
+		public static Texture2D DarkvilleFarmsBackgroundMask { get; private set; }
+
 		public static void LoadAssets( ContentManager content )
 		{
 			MainFont = content.Load<SpriteFont>( "Arial" );
@@ -51,6 +54,9 @@ namespace egp_story
 			SilverboltArrowEast = content.Load<Texture2D>( "gfx/silverbolt/arrow_e" );
 			SilverboltArrowNorth = content.Load<Texture2D>( "gfx/silverbolt/arrow_n" );
 			SilverboltArrowSouth = content.Load<Texture2D>( "gfx/silverbolt/arrow_s" );
+
+			DarkvilleFarmsBackground = content.Load<Texture2D>( "gfx/levels/darkville_farms" );
+			DarkvilleFarmsBackgroundMask = content.Load<Texture2D>( "gfx/levels/darkville_farms_mask" );
 		}
 	}
 }

@@ -21,9 +21,11 @@ namespace egp_story.Levels
 
 		private Player _player;
 
+		private LevelMap _map;
+
 		public DarkvilleFarmsLevel( Game game )
 		{
-			_player = new Player( game, CardinalDirection.EAST,
+			_player = new Player( game, CardinalDirection.SOUTH,
 				new[] {
 					new AnimatedSprite( Assets.SilverboltShootNorth, 10, 20 ),
 					new AnimatedSprite( Assets.SilverboltShootSouth, 10, 20 ),
@@ -38,15 +40,20 @@ namespace egp_story.Levels
 					new AnimatedSprite( Assets.SilverboltArrowEast, 1, 1)
 					}
 				);
+
+			_map = new LevelMap( Assets.DarkvilleFarmsBackground, Assets.DarkvilleFarmsBackgroundMask );
+			_player.Position = _map.SpawnPoint;
 		}
 
 		public void Update( GameTime gameTime )
 		{
-			_player.Update( gameTime );
+			_player.Update( _map, gameTime );
 		}
 
 		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
+			_map.Draw( spriteBatch, gameTime );
+
 			_player.Draw( spriteBatch, gameTime );
 		}
 		#endregion

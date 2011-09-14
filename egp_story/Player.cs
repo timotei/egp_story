@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace egp_story
 {
-	public class Player : IUpdateable, IDrawable
+	public class Player : IDrawable
 	{
 		public Vector2 Position { get; set; }
 
@@ -112,7 +112,7 @@ namespace egp_story
 
 		#endregion
 
-		public void Update( GameTime gameTime )
+		public void Update( LevelMap levelMap, GameTime gameTime )
 		{
 			KeyboardState keys = Keyboard.GetState( );
 			if ( !_attacking && keys.IsKeyDown2( Keys.Space ) ) {
@@ -170,8 +170,13 @@ namespace egp_story
 				}
 
 				if ( moved ) {
-					Position += FacingDirection.ToVelocity( ) * 3;
 					ReplaceCurrentAnimation( );
+					// check if we can move there.
+					bool canMove = false;
+
+					if ( canMove ) {
+						Position += FacingDirection.ToVelocity( ) * 3;
+					}
 				}
 			}
 

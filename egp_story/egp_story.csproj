@@ -115,6 +115,7 @@
     <Compile Include="CardinalDirection.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="IUpdateable.cs" />
+    <Compile Include="LevelMap.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="KeyboardStateExtensions.cs" />
     <Compile Include="Levels\DarkvilleFarmsLevel.cs" />
