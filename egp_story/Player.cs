@@ -172,7 +172,7 @@ namespace egp_story
 				if ( moved ) {
 					ReplaceCurrentAnimation( );
 					// check if we can move there.
-					Vector2 newPosition = ( Position + FacingDirection.ToVelocity( ) * 3 );
+					Vector2 newPosition = ( Position + FacingDirection.ToVelocity( ) * 2 );
 					Rectangle newBoundingBox = CurrentAnimation.FrameBoundingBox;
 					newBoundingBox.Offset( ( int ) newPosition.X, ( int ) newPosition.Y );
 
@@ -183,18 +183,15 @@ namespace egp_story
 						if ( texel == Color.White || texel == Color.Black ) {
 
 							// upper right
-							texel = levelMap.GetTexel( newPosition.Y +
-								CurrentAnimation.FrameBoundingBox.Height, newPosition.X );
+							texel = levelMap.GetTexel( newPosition.Y, newBoundingBox.Right );
 							if ( texel == Color.White || texel == Color.Black ) {
 
 								// bottom right
-								texel = levelMap.GetTexel( newPosition.Y + CurrentAnimation.FrameBoundingBox.Height,
-									newPosition.X + CurrentAnimation.FrameBoundingBox.Width );
+								texel = levelMap.GetTexel( newBoundingBox.Bottom, newBoundingBox.Right );
 								if ( texel == Color.White || texel == Color.Black ) {
 
 									// bottom left
-									texel = levelMap.GetTexel( newPosition.Y,
-										newPosition.X + CurrentAnimation.FrameBoundingBox.Width );
+									texel = levelMap.GetTexel( newBoundingBox.Bottom, newPosition.X );
 									if ( texel == Color.White || texel == Color.Black ) {
 										canMove = true;
 									}
@@ -203,7 +200,7 @@ namespace egp_story
 						}
 
 						if ( canMove ) {
-							Position += FacingDirection.ToVelocity( ) * 3;
+							Position += FacingDirection.ToVelocity( ) * 2;
 						}
 					}
 				}
