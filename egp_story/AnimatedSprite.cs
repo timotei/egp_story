@@ -50,11 +50,11 @@ namespace egp_story
 			spriteBatch.Draw( _texture, position, _sourceRectangle, Color.White, 0f, Vector2.Zero, 1f,
 				effects, 0 );
 
-#if DEBUG
-			Rectangle boundingRect = FrameBoundingBox;
-			boundingRect.Offset( ( int ) position.X, ( int ) position.Y );
-			boundingRect.Draw( spriteBatch );
-#endif
+			//#if DEBUG
+			//            Rectangle boundingRect = FrameBoundingBox;
+			//            boundingRect.Offset( ( int ) position.X, ( int ) position.Y );
+			//            boundingRect.Draw( spriteBatch );
+			//#endif
 		}
 
 		/// <summary>

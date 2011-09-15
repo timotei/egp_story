@@ -62,5 +62,39 @@ namespace egp_story
 		}
 
 		#endregion
+
+		/// <summary>
+		/// Returns true if the rectangle's bounds are on valid position (walkable)
+		/// </summary>
+		/// <param name="rectangle">The rectangle to check the bounds for</param>
+		/// <returns></returns>
+		public bool CheckRectangleBounds( Rectangle rectangle )
+		{
+			if ( !Mask.Bounds.Contains( rectangle ) )
+				return false;
+
+			// upper left
+			Color texel = GetTexel( rectangle.Y, rectangle.X );
+			if ( texel == Color.White || texel == Color.Black ) {
+
+				// upper right
+				texel = GetTexel( rectangle.Y, rectangle.Right );
+				if ( texel == Color.White || texel == Color.Black ) {
+
+					// bottom right
+					texel = GetTexel( rectangle.Bottom, rectangle.Right );
+					if ( texel == Color.White || texel == Color.Black ) {
+
+						// bottom left
+						texel = GetTexel( rectangle.Bottom, rectangle.X );
+						if ( texel == Color.White || texel == Color.Black ) {
+							return true;
+						}
+					}
+				}
+			}
+
+			return false;
+		}
 	}
 }

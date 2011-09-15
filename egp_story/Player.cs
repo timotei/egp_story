@@ -176,32 +176,8 @@ namespace egp_story
 					Rectangle newBoundingBox = CurrentAnimation.FrameBoundingBox;
 					newBoundingBox.Offset( ( int ) newPosition.X, ( int ) newPosition.Y );
 
-					if ( levelMap.Mask.Bounds.Contains( newBoundingBox ) ) {
-						bool canMove = false;
-						// upper left
-						Color texel = levelMap.GetTexel( newPosition.Y, newPosition.X );
-						if ( texel == Color.White || texel == Color.Black ) {
-
-							// upper right
-							texel = levelMap.GetTexel( newPosition.Y, newBoundingBox.Right );
-							if ( texel == Color.White || texel == Color.Black ) {
-
-								// bottom right
-								texel = levelMap.GetTexel( newBoundingBox.Bottom, newBoundingBox.Right );
-								if ( texel == Color.White || texel == Color.Black ) {
-
-									// bottom left
-									texel = levelMap.GetTexel( newBoundingBox.Bottom, newPosition.X );
-									if ( texel == Color.White || texel == Color.Black ) {
-										canMove = true;
-									}
-								}
-							}
-						}
-
-						if ( canMove ) {
-							Position += FacingDirection.ToVelocity( ) * 2;
-						}
+					if ( levelMap.CheckRectangleBounds( newBoundingBox ) ) {
+						Position = newPosition;
 					}
 				}
 			}
@@ -218,7 +194,7 @@ namespace egp_story
 
 				projectile.Position += projectile.Velocity * 5;
 
-				if ( !_graphics.GraphicsDevice.Viewport.Bounds.Contains( ref projectile.Position ) ) {
+				if ( !levelMap.Mask.Bounds.Contains( ref projectile.Position ) ) {
 					// remove this
 					_projectilesShot.Dequeue( );
 				}
