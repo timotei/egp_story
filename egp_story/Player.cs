@@ -191,11 +191,17 @@ namespace egp_story
 			for ( int i = 0; i < tmpArray.Length; ++i ) {
 				Projectile projectile = tmpArray[i];
 				projectile.Animation.Update( gameTime );
-
 				projectile.Position += projectile.Velocity * 5;
+
+				Rectangle projectileBox = projectile.Animation.FrameBoundingBox;
+				projectileBox.Offset( ( int ) projectile.Position.X, ( int ) projectile.Position.Y );
 
 				if ( !levelMap.Mask.Bounds.Contains( ref projectile.Position ) ) {
 					// remove this
+					_projectilesShot.Dequeue( );
+				}
+				else if ( !levelMap.CheckRectangleBounds( projectileBox ) ) {
+					//TODO: add hit animation
 					_projectilesShot.Dequeue( );
 				}
 			}
