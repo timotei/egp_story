@@ -31,6 +31,10 @@ namespace egp_story
 		public static Texture2D SilverboltWalkNorth { get; private set; }
 		public static Texture2D SilverboltWalkEast { get; private set; }
 
+		public static Texture2D BugWalkSouth { get; private set; }
+		public static Texture2D BugWalkNorth { get; private set; }
+		public static Texture2D BugWalkEast { get; private set; }
+
 		public static Texture2D SilverboltArrowNorth { get; private set; }
 		public static Texture2D SilverboltArrowSouth { get; private set; }
 		public static Texture2D SilverboltArrowEast { get; private set; }
@@ -65,6 +69,11 @@ namespace egp_story
 			DarkvilleFarmsBackground = content.Load<Texture2D>( "gfx/levels/darkville_farms" );
 			DarkvilleFarmsBackgroundMask = content.Load<Texture2D>( "gfx/levels/darkville_farms_mask" );
 
+			BugWalkSouth = content.Load<Texture2D>( "gfx/mobs/bug_walk_s" );
+			BugWalkNorth = content.Load<Texture2D>( "gfx/mobs/bug_walk_n" );
+			BugWalkEast = content.Load<Texture2D>( "gfx/mobs/bug_walk_e" );
+
+			// create the blank pixel
 			GraphicsDeviceManager graphicsManager = ( GraphicsDeviceManager )
 				content.ServiceProvider.GetService( typeof( IGraphicsDeviceManager ) );
 

@@ -18,14 +18,11 @@ namespace egp_story.Levels
 	public class DarkvilleFarmsLevel : IStoryLevel
 	{
 		#region IStoryLevel Members
-
-		private Player _player;
-
 		private LevelMap _map;
 
 		public DarkvilleFarmsLevel( Game game )
 		{
-			_player = new Player( game, CardinalDirection.SOUTH,
+			Player player = new Player( game, CardinalDirection.SOUTH,
 				new[] {
 					new AnimatedSprite( Assets.SilverboltShootNorth, 10, 20 ),
 					new AnimatedSprite( Assets.SilverboltShootSouth, 10, 20 ),
@@ -42,19 +39,29 @@ namespace egp_story.Levels
 				);
 
 			_map = new LevelMap( Assets.DarkvilleFarmsBackground, Assets.DarkvilleFarmsBackgroundMask );
-			_player.Position = _map.SpawnPoint;
+			player.Position = _map.SpawnPoint;
+			_map.ThePlayer = player;
+
+			Enemy bugEnemy = new Enemy( game, CardinalDirection.SOUTH, null,
+				new[] { 
+					new AnimatedSprite( Assets.BugWalkNorth, 2, 5 ),
+					new AnimatedSprite( Assets.BugWalkSouth, 2, 5 ),
+					new AnimatedSprite( Assets.BugWalkEast, 2, 5 )},
+					null
+				);
+
+			bugEnemy.Position = player.Position + new Vector2( 0, 20.0f );
+			_map.ActorObjects.Add( bugEnemy );
 		}
 
 		public void Update( GameTime gameTime )
 		{
-			_player.Update( _map, gameTime );
+			_map.Update( gameTime );
 		}
 
 		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
 			_map.Draw( spriteBatch, gameTime );
-
-			_player.Draw( spriteBatch, gameTime );
 		}
 		#endregion
 	}

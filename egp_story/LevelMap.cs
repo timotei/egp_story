@@ -11,21 +11,27 @@
    See the COPYING file for more details.
 */
 
+using System.Collections.Generic;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 namespace egp_story
 {
-	public class LevelMap : IDrawable
+	public class LevelMap : IDrawable, IUpdateable
 	{
 		public Texture2D Image { get; private set; }
 		public Texture2D Mask { get; private set; }
 		public Color[] MaskData { get; private set; }
 		public Vector2 SpawnPoint { get; private set; }
+		public Player ThePlayer { get; set; }
 
 		public Vector2 Position { get; set; }
 
+		public List<GameActor> ActorObjects { get; set; }
+
 		public LevelMap( Texture2D image, Texture2D mask )
 		{
+			ActorObjects = new List<GameActor>( );
+
 			Image = image;
 			Mask = mask;
 
@@ -59,6 +65,12 @@ namespace egp_story
 		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
 			spriteBatch.Draw( Image, Position );
+			if ( ThePlayer != null )
+				ThePlayer.Draw( spriteBatch, gameTime );
+
+			foreach ( var actorObj in ActorObjects ) {
+				actorObj.Draw( spriteBatch, gameTime );
+			}
 		}
 
 		#endregion
@@ -96,5 +108,38 @@ namespace egp_story
 
 			return false;
 		}
+
+		/// <summary>
+		/// Checks if the rectangle collides with an existing game object, and if so
+		/// removes it from the map returning the removed object. Returns null if 
+		/// no collision exists.
+		/// </summary>
+		/// <param name="rectangle"></param>
+		/// <returns></returns>
+		public GameActor CheckHitAndRemove( Rectangle rectangle )
+		{
+			for ( int i = 0; i < ActorObjects.Count; ++i ) {
+				GameActor actor = ActorObjects[i];
+				if ( actor.BoundingBox.Contains( rectangle ) ) {
+					ActorObjects.RemoveAt( i );
+					return actor;
+				}
+			}
+			return null;
+		}
+
+		#region IUpdateable Members
+
+		public void Update( GameTime gameTime )
+		{
+			if ( ThePlayer != null )
+				ThePlayer.Update( this, gameTime );
+
+			foreach ( var actorObject in ActorObjects ) {
+				actorObject.Update( this, gameTime );
+			}
+		}
+
+		#endregion
 	}
 }

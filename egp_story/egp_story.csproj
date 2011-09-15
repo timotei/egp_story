@@ -113,6 +113,8 @@
     <Compile Include="AnimatedSprite.cs" />
     <Compile Include="Assets.cs" />
     <Compile Include="CardinalDirection.cs" />
+    <Compile Include="Enemy.cs" />
+    <Compile Include="GameActor.cs" />
     <Compile Include="IDrawable.cs" />
     <Compile Include="IUpdateable.cs" />
     <Compile Include="LevelMap.cs" />

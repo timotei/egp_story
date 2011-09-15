@@ -18,30 +18,9 @@ using Microsoft.Xna.Framework.Input;
 
 namespace egp_story
 {
-	public class Player : IDrawable
+	public class Player : GameActor
 	{
-		public Vector2 Position { get; set; }
-
-		public CardinalDirection FacingDirection { get; set; }
-
-		public AnimatedSprite AttackNorthAnim { get; set; }
-		public AnimatedSprite AttackSouthAnim { get; set; }
-		public AnimatedSprite AttackEastAnim { get; set; }
-
-		public AnimatedSprite WalkNorthAnim { get; set; }
-		public AnimatedSprite WalkSouthAnim { get; set; }
-		public AnimatedSprite WalkEastAnim { get; set; }
-
-		public AnimatedSprite ProjectileNorthAnim { get; set; }
-		public AnimatedSprite ProjectileSouthAnim { get; set; }
-		public AnimatedSprite ProjectileEastAnim { get; set; }
-
-		public AnimatedSprite CurrentAnimation { get; set; }
-
 		private Queue<Projectile> _projectilesShot;
-		private bool _attacking;
-
-		private GraphicsDeviceManager _graphics;
 
 		/// <summary>
 		/// 
@@ -52,57 +31,16 @@ namespace egp_story
 		/// <param name="projectileAnims">The order of the animations: North, South, East</param>
 		public Player( Game parent, CardinalDirection initialFacingDirection, AnimatedSprite[] attackAnims,
 			AnimatedSprite[] walkAnims, AnimatedSprite[] projectileAnims )
+			: base( parent, initialFacingDirection, attackAnims, walkAnims, projectileAnims )
 		{
-			AttackNorthAnim = attackAnims[0];
-			AttackSouthAnim = attackAnims[1];
-			AttackEastAnim = attackAnims[2];
-
-			WalkNorthAnim = walkAnims[0];
-			WalkSouthAnim = walkAnims[1];
-			WalkEastAnim = walkAnims[2];
-
-			ProjectileNorthAnim = projectileAnims[0];
-			ProjectileSouthAnim = projectileAnims[1];
-			ProjectileEastAnim = projectileAnims[2];
-
 			_projectilesShot = new Queue<Projectile>( );
-
-			_graphics = ( GraphicsDeviceManager ) parent.Services.GetService( typeof( IGraphicsDeviceManager ) );
-
-			FacingDirection = initialFacingDirection;
-			ReplaceCurrentAnimation( );
-		}
-
-		private void ReplaceCurrentAnimation( )
-		{
-			StopAnimation( );
-
-			switch ( FacingDirection ) {
-				case CardinalDirection.EAST:
-					CurrentAnimation = _attacking ? AttackEastAnim : WalkEastAnim;
-					break;
-				case CardinalDirection.WEST:
-					CurrentAnimation = _attacking ? AttackEastAnim : WalkEastAnim;
-					break;
-				case CardinalDirection.SOUTH:
-					CurrentAnimation = _attacking ? AttackSouthAnim : WalkSouthAnim;
-					break;
-				case CardinalDirection.NORTH:
-					CurrentAnimation = _attacking ? AttackNorthAnim : WalkNorthAnim;
-					break;
-			}
-
-			CurrentAnimation.Playing = true;
 		}
 
 		#region IDrawable Members
 
-		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
+		public override void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
-			if ( CurrentAnimation != null ) {
-				CurrentAnimation.Draw( spriteBatch, Position, gameTime,
-					FacingDirection == CardinalDirection.WEST ? SpriteEffects.FlipHorizontally : SpriteEffects.None );
-			}
+			base.Draw( spriteBatch, gameTime );
 
 			foreach ( Projectile projectile in _projectilesShot ) {
 				projectile.Animation.Draw( spriteBatch, projectile.Position, gameTime,
@@ -112,7 +50,7 @@ namespace egp_story
 
 		#endregion
 
-		public void Update( LevelMap levelMap, GameTime gameTime )
+		public override void Update( LevelMap levelMap, GameTime gameTime )
 		{
 			KeyboardState keys = Keyboard.GetState( );
 			if ( !_attacking && keys.IsKeyDown2( Keys.Space ) ) {
@@ -205,15 +143,6 @@ namespace egp_story
 					_projectilesShot.Dequeue( );
 				}
 			}
-		}
-
-		private void StopAnimation( )
-		{
-			if ( CurrentAnimation == null )
-				return;
-
-			CurrentAnimation.Playing = false;
-			CurrentAnimation.Reset( );
 		}
 	}
 
