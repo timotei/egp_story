@@ -20,8 +20,8 @@ namespace egp_story
 {
 	public class TheStory : Microsoft.Xna.Framework.Game
 	{
-		public const int GAME_WIDTH = 950;
-		public const int GAME_HEIGHT = 600;
+		public const int GAME_WIDTH = 512;
+		public const int GAME_HEIGHT = 512;
 
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
