@@ -131,5 +131,28 @@ namespace egp_story
 		}
 
 		#endregion
+
+
+
+		/// <summary>
+		/// Checks if the rectangle collides with an existing game object, and if so
+		/// removes it from the map returning the removed object. Returns null if 
+		/// no collision exists.
+		/// </summary>
+		/// <param name="rectangle"></param>
+		/// <returns></returns>
+		public GameActor CheckHitAndRemove( LevelMap map, Rectangle rectangle, bool remove = true )
+		{
+			for ( int i = 0; i < map.ActorObjects.Count; ++i ) {
+				GameActor actor = map.ActorObjects[i];
+				if ( actor != this &&
+					actor.BoundingBox.Intersects( rectangle ) ) {
+					if ( remove )
+						map.ActorObjects.RemoveAt( i );
+					return actor;
+				}
+			}
+			return null;
+		}
 	}
 }

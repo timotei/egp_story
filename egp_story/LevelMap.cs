@@ -93,6 +93,8 @@ namespace egp_story
 			if ( !Mask.Bounds.Contains( rectangle ) )
 				return false;
 
+			rectangle.Width--;
+			rectangle.Height--;
 			// upper left
 			Color texel = GetTexel( rectangle.Y, rectangle.X );
 			if ( texel == Color.White || texel == Color.Black ) {
@@ -115,25 +117,6 @@ namespace egp_story
 			}
 
 			return false;
-		}
-
-		/// <summary>
-		/// Checks if the rectangle collides with an existing game object, and if so
-		/// removes it from the map returning the removed object. Returns null if 
-		/// no collision exists.
-		/// </summary>
-		/// <param name="rectangle"></param>
-		/// <returns></returns>
-		public GameActor CheckHitAndRemove( Rectangle rectangle )
-		{
-			for ( int i = 0; i < ActorObjects.Count; ++i ) {
-				GameActor actor = ActorObjects[i];
-				if ( actor.BoundingBox.Intersects( rectangle ) ) {
-					ActorObjects.RemoveAt( i );
-					return actor;
-				}
-			}
-			return null;
 		}
 
 		#region IUpdateable Members

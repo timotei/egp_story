@@ -12,11 +12,15 @@
 */
 
 
+using System;
 using Microsoft.Xna.Framework;
 namespace egp_story
 {
 	public class Enemy : GameActor
 	{
+		private int _lastTimeMoved = 0;
+		private static Random _random = new Random( );
+
 		public Enemy( Game game, CardinalDirection initialFacingDirection, AnimatedSprite[] attackAnims,
 			AnimatedSprite[] walkAnims, AnimatedSprite[] projectileAnims )
 			: base( game, initialFacingDirection, attackAnims, walkAnims, projectileAnims )
@@ -45,11 +49,47 @@ namespace egp_story
 
 		public override void Update( LevelMap levelMap, GameTime gameTime )
 		{
+			if ( ( gameTime.TotalGameTime.TotalMilliseconds - _lastTimeMoved ) > 10 ) {
+				_lastTimeMoved = ( int ) gameTime.TotalGameTime.TotalMilliseconds;
 
+				// move randomly
+				int steps = 0; // bound the maximum times to retry
+				Vector2 displacement = new Vector2( );
+				while ( steps < 10 ) {
+					displacement.X = _random.Next( 5 ) - 2;
+					displacement.Y = _random.Next( 5 ) - 2;
+
+					Rectangle newBoundingBox = BoundingBox;
+					newBoundingBox.Offset( ( int ) displacement.X, ( int ) displacement.Y );
+					if ( IsNewPositionOK( levelMap, newBoundingBox ) ) {
+						Position += displacement;
+						break;
+					}
+					else {
+						// invert the move direction
+						displacement *= -2;
+
+						newBoundingBox.Offset( ( int ) displacement.X, ( int ) displacement.Y );
+						if ( IsNewPositionOK( levelMap, newBoundingBox ) ) {
+							Position += displacement;
+							break;
+						}
+					}
+					++steps;
+				}
+
+			}
 
 			if ( CurrentAnimation != null ) {
 				CurrentAnimation.Update( gameTime );
 			}
+		}
+
+		private bool IsNewPositionOK( LevelMap levelMap, Rectangle rectangle )
+		{
+			return ( levelMap.CheckRectangleBounds( rectangle ) &&
+					!levelMap.ThePlayer.BoundingBox.Intersects( rectangle ) &&
+					CheckHitAndRemove( levelMap, rectangle, false ) == null );
 		}
 	}
 }

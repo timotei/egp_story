@@ -155,7 +155,7 @@ namespace egp_story
 				}
 				else {
 					// check collision with other objects
-					if ( levelMap.CheckHitAndRemove( projectileBox ) != null ) {
+					if ( CheckHitAndRemove( levelMap, projectileBox ) != null ) {
 						_projectilesShot.Dequeue( );
 					}
 				}
