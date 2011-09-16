@@ -38,9 +38,7 @@ namespace egp_story.Levels
 					}
 				);
 
-			_map = new LevelMap( Assets.DarkvilleFarmsBackground, Assets.DarkvilleFarmsBackgroundMask );
-			player.Position = _map.SpawnPoint;
-			_map.ThePlayer = player;
+			_map = new LevelMap( player, Assets.DarkvilleFarmsBackground, Assets.DarkvilleFarmsBackgroundMask );
 
 			Enemy bugEnemy = new Enemy( game, CardinalDirection.SOUTH, null,
 				new[] { 
