@@ -155,12 +155,8 @@ namespace egp_story
 				}
 				else {
 					// check collision with other objects
-					foreach ( GameActor actor in levelMap.ActorObjects ) {
-						if ( actor.BoundingBox.Intersects( projectileBox ) ) {
-							_projectilesShot.Dequeue( );
-							levelMap.ActorObjects.Remove( actor );
-							break;
-						}
+					if ( levelMap.CheckHitAndRemove( projectileBox ) != null ) {
+						_projectilesShot.Dequeue( );
 					}
 				}
 			}

@@ -45,6 +45,8 @@ namespace egp_story
 
 		public override void Update( LevelMap levelMap, GameTime gameTime )
 		{
+
+
 			if ( CurrentAnimation != null ) {
 				CurrentAnimation.Update( gameTime );
 			}

@@ -128,7 +128,7 @@ namespace egp_story
 		{
 			for ( int i = 0; i < ActorObjects.Count; ++i ) {
 				GameActor actor = ActorObjects[i];
-				if ( actor.BoundingBox.Contains( rectangle ) ) {
+				if ( actor.BoundingBox.Intersects( rectangle ) ) {
 					ActorObjects.RemoveAt( i );
 					return actor;
 				}
