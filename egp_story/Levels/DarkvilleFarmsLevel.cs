@@ -38,8 +38,6 @@ namespace egp_story.Levels
 					}
 				);
 
-			_map = new LevelMap( player, Assets.DarkvilleFarmsBackground, Assets.DarkvilleFarmsBackgroundMask );
-
 			Enemy bugEnemy = new Enemy( game, CardinalDirection.SOUTH, null,
 				new[] { 
 					new AnimatedSprite( Assets.BugWalkNorth, 2, 5 ),
@@ -48,8 +46,7 @@ namespace egp_story.Levels
 					null
 				);
 
-			bugEnemy.Position = player.Position + new Vector2( 0, 20.0f );
-			_map.ActorObjects.Add( bugEnemy );
+			_map = new LevelMap( player, bugEnemy, Assets.DarkvilleFarmsBackground, Assets.DarkvilleFarmsBackgroundMask );
 		}
 
 		public void Update( GameTime gameTime )

@@ -23,6 +23,26 @@ namespace egp_story
 		{
 		}
 
+		public Enemy( Enemy other ) :
+			base( other._game )
+		{
+			FacingDirection = other.FacingDirection;
+
+			if ( other.AttackEastAnim != null ) AttackEastAnim = new AnimatedSprite( other.AttackEastAnim );
+			if ( other.AttackNorthAnim != null ) AttackNorthAnim = new AnimatedSprite( other.AttackNorthAnim );
+			if ( other.AttackSouthAnim != null ) AttackSouthAnim = new AnimatedSprite( other.AttackSouthAnim );
+
+			if ( other.WalkEastAnim != null ) WalkEastAnim = new AnimatedSprite( other.WalkEastAnim );
+			if ( other.WalkNorthAnim != null ) WalkNorthAnim = new AnimatedSprite( other.WalkNorthAnim );
+			if ( other.WalkSouthAnim != null ) WalkSouthAnim = new AnimatedSprite( other.WalkSouthAnim );
+
+			if ( other.ProjectileEastAnim != null ) ProjectileEastAnim = new AnimatedSprite( other.ProjectileEastAnim );
+			if ( other.ProjectileNorthAnim != null ) ProjectileNorthAnim = new AnimatedSprite( other.ProjectileNorthAnim );
+			if ( other.ProjectileSouthAnim != null ) ProjectileSouthAnim = new AnimatedSprite( other.ProjectileSouthAnim );
+
+			ReplaceCurrentAnimation( );
+		}
+
 		public override void Update( LevelMap levelMap, GameTime gameTime )
 		{
 			if ( CurrentAnimation != null ) {

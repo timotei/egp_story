@@ -115,7 +115,18 @@ namespace egp_story
 					newBoundingBox.Offset( ( int ) newPosition.X, ( int ) newPosition.Y );
 
 					if ( levelMap.CheckRectangleBounds( newBoundingBox ) ) {
-						Position = newPosition;
+						// check collision with other objects
+						bool collides = false;
+						foreach ( GameActor actor in levelMap.ActorObjects ) {
+							if ( actor.BoundingBox.Intersects( newBoundingBox ) ) {
+								collides = true;
+								break;
+							}
+						}
+
+						if ( !collides ) {
+							Position = newPosition;
+						}
 					}
 				}
 			}
@@ -141,6 +152,16 @@ namespace egp_story
 				else if ( !levelMap.CheckRectangleBounds( projectileBox ) ) {
 					//TODO: add hit animation
 					_projectilesShot.Dequeue( );
+				}
+				else {
+					// check collision with other objects
+					foreach ( GameActor actor in levelMap.ActorObjects ) {
+						if ( actor.BoundingBox.Intersects( projectileBox ) ) {
+							_projectilesShot.Dequeue( );
+							levelMap.ActorObjects.Remove( actor );
+							break;
+						}
+					}
 				}
 			}
 		}

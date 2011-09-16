@@ -23,32 +23,37 @@ namespace egp_story
 		public Color[] MaskData { get; private set; }
 		public Vector2 SpawnPoint { get; private set; }
 		public Player ThePlayer { get; private set; }
+		public Enemy RedEnemy { get; private set; }
 
 		public Vector2 Position { get; set; }
 
 		public List<GameActor> ActorObjects { get; set; }
 
-		public LevelMap( Player player, Texture2D image, Texture2D mask )
+		public LevelMap( Player player, Enemy redEnemy, Texture2D image, Texture2D mask )
 		{
 			ActorObjects = new List<GameActor>( );
-
 			Image = image;
 			Mask = mask;
 
 			ThePlayer = player;
+			RedEnemy = redEnemy;
 
 			MaskData = new Color[mask.Width * mask.Height];
 			Mask.GetData<Color>( MaskData );
-			CalculateSpawnPoint( );
+			CalculateSpawnPoints( );
 			player.Position = SpawnPoint;
 		}
 
-		protected void CalculateSpawnPoint( )
+		protected void CalculateSpawnPoints( )
 		{
 			for ( int i = 0; i < MaskData.Length; ++i ) {
 				if ( MaskData[i] == Color.Black ) {
 					SpawnPoint = new Vector2( i % Mask.Width, i / Mask.Width );
-					return;
+				}
+				else if ( MaskData[i] == Color.Red ) {
+					Enemy clone =  new Enemy( RedEnemy );
+					clone.Position = new Vector2( i % Mask.Width, i / Mask.Width );
+					ActorObjects.Add( clone );
 				}
 			}
 		}

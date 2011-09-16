@@ -26,6 +26,17 @@ namespace egp_story
 			_sourceRectangle = new Rectangle( 0, 0, _increment, _texture.Height );
 		}
 
+		public AnimatedSprite( AnimatedSprite other )
+		{
+			_texture = other._texture;
+			_sourceRectangle = other._sourceRectangle;
+			_fps = other._fps;
+			_increment = other._increment;
+			_totalElapsed = other._totalElapsed;
+			Finished = other.Finished;
+			FrameBoundingBox = other.FrameBoundingBox;
+		}
+
 		public void Update( GameTime gameTime )
 		{
 			if ( !Playing )
@@ -50,11 +61,11 @@ namespace egp_story
 			spriteBatch.Draw( _texture, position, _sourceRectangle, Color.White, 0f, Vector2.Zero, 1f,
 				effects, 0 );
 
-			//#if DEBUG
-			//            Rectangle boundingRect = FrameBoundingBox;
-			//            boundingRect.Offset( ( int ) position.X, ( int ) position.Y );
-			//            boundingRect.Draw( spriteBatch );
-			//#endif
+#if DEBUG
+			Rectangle boundingRect = FrameBoundingBox;
+			boundingRect.Offset( ( int ) position.X, ( int ) position.Y );
+			boundingRect.Draw( spriteBatch );
+#endif
 		}
 
 		/// <summary>
