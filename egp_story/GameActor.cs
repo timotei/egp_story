@@ -89,24 +89,26 @@ namespace egp_story
 
 		protected void ReplaceCurrentAnimation( )
 		{
-			StopAnimation( );
+			AnimatedSprite newAnim = null;
 
 			switch ( FacingDirection ) {
 				case CardinalDirection.EAST:
-					CurrentAnimation = _attacking ? AttackEastAnim : WalkEastAnim;
+					newAnim = _attacking ? AttackEastAnim : WalkEastAnim;
 					break;
 				case CardinalDirection.WEST:
-					CurrentAnimation = _attacking ? AttackEastAnim : WalkEastAnim;
+					newAnim = _attacking ? AttackEastAnim : WalkEastAnim;
 					break;
 				case CardinalDirection.SOUTH:
-					CurrentAnimation = _attacking ? AttackSouthAnim : WalkSouthAnim;
+					newAnim = _attacking ? AttackSouthAnim : WalkSouthAnim;
 					break;
 				case CardinalDirection.NORTH:
-					CurrentAnimation = _attacking ? AttackNorthAnim : WalkNorthAnim;
+					newAnim = _attacking ? AttackNorthAnim : WalkNorthAnim;
 					break;
 			}
 
-			if ( CurrentAnimation != null ) {
+			if ( CurrentAnimation != newAnim && newAnim != null ) {
+				StopAnimation( );
+				CurrentAnimation = newAnim;
 				CurrentAnimation.Playing = true;
 			}
 		}
