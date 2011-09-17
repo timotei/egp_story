@@ -21,16 +21,10 @@ namespace egp_story.Levels
 			: base( game )
 		{
 			Player player = Player.CreateNewHarapAlb( game );
+			Enemy bugEnemy = Enemy.CreateBugEnemy( game );
 
-			Enemy bugEnemy = new Enemy( game, CardinalDirection.SOUTH, null,
-				new[] { 
-					new AnimatedSprite( Assets.BugWalkNorth, 2, 5 ),
-					new AnimatedSprite( Assets.BugWalkSouth, 2, 5 ),
-					new AnimatedSprite( Assets.BugWalkEast, 2, 5 )},
-					null
-				);
-
-			LevelMap = new LevelMap( player, bugEnemy, Assets.ViridesPuirrBackground, Assets.ViridesPuirrBackgroundMask );
+			LevelMap = new LevelMap( player, bugEnemy,
+				Assets.ViridesPuirrBackground, Assets.ViridesPuirrBackgroundMask );
 		}
 	}
 }

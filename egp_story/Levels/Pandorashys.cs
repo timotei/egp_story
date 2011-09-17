@@ -20,7 +20,10 @@ namespace egp_story.Levels
 			: base( game )
 		{
 			Player player = Player.CreateNewHarapAlb( game );
-			LevelMap = new LevelMap( player, null, Assets.PandorashysBackground, Assets.PandorashysBackgroundMask );
+			Enemy bugEnemy = Enemy.CreateBugEnemy( game );
+
+			LevelMap = new LevelMap( player, bugEnemy,
+				Assets.PandorashysBackground, Assets.PandorashysBackgroundMask );
 		}
 	}
 }

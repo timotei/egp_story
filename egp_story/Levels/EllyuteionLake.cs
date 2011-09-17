@@ -21,7 +21,10 @@ namespace egp_story.Levels
 			: base( game )
 		{
 			Player player = Player.CreateNewHarapAlb( game );
-			LevelMap = new LevelMap( player, null, Assets.EllyuteionLakeBackground, Assets.EllyuteionLakeBackgroundMask );
+			Enemy bugEnemy = Enemy.CreateBugEnemy( game );
+
+			LevelMap = new LevelMap( player, bugEnemy,
+				Assets.EllyuteionLakeBackground, Assets.EllyuteionLakeBackgroundMask );
 		}
 	}
 }

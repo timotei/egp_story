@@ -93,5 +93,16 @@ namespace egp_story
 					!levelMap.ThePlayer.BoundingBox.Intersects( rectangle ) &&
 					CheckHitAndRemove( levelMap, rectangle, false ) == null );
 		}
+
+		public static Enemy CreateBugEnemy( Game game )
+		{
+			return new Enemy( game, CardinalDirection.SOUTH, null,
+				new[] { 
+					new AnimatedSprite( Assets.BugWalkNorth, 2, 5 ),
+					new AnimatedSprite( Assets.BugWalkSouth, 2, 5 ),
+					new AnimatedSprite( Assets.BugWalkEast, 2, 5 )},
+					null
+				);
+		}
 	}
 }

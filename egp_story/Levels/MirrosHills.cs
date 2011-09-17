@@ -20,7 +20,10 @@ namespace egp_story.Levels
 			: base( game )
 		{
 			Player player = Player.CreateNewHarapAlb( game );
-			LevelMap = new LevelMap( player, null, Assets.MirrosHillsBackground, Assets.MirrosHillsBackgroundMask );
+			Enemy bugEnemy = Enemy.CreateBugEnemy( game );
+
+			LevelMap = new LevelMap( player, bugEnemy,
+				Assets.MirrosHillsBackground, Assets.MirrosHillsBackgroundMask );
 		}
 	}
 }
