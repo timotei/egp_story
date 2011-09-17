@@ -154,7 +154,7 @@ namespace egp_story
 					// remove this
 					_projectilesShot.Dequeue( );
 				}
-				else if ( !levelMap.CheckRectangleBounds( projectileBox ) ) {
+				else if ( !levelMap.CheckRectangleBounds( projectileBox, true ) ) {
 					//TODO: add hit animation
 					_projectilesShot.Dequeue( );
 				}

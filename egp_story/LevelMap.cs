@@ -90,8 +90,9 @@ namespace egp_story
 		/// Returns true if the rectangle's bounds are on valid position (walkable)
 		/// </summary>
 		/// <param name="rectangle">The rectangle to check the bounds for</param>
+		/// <param name="waterWalkable">Whether to consider water to be walkable (e.g., flying objects)</param>
 		/// <returns></returns>
-		public bool CheckRectangleBounds( Rectangle rectangle )
+		public bool CheckRectangleBounds( Rectangle rectangle, bool waterWalkable = false )
 		{
 			if ( !Mask.Bounds.Contains( rectangle ) )
 				return false;
@@ -100,19 +101,23 @@ namespace egp_story
 			rectangle.Height--;
 			// upper left
 			Color texel = GetTexel( rectangle.Y, rectangle.X );
-			if ( texel == Color.White || texel == Color.Black ) {
+			if ( texel == Color.White || texel == Color.Black ||
+				( waterWalkable && texel == Color.Blue ) ) {
 
 				// upper right
 				texel = GetTexel( rectangle.Y, rectangle.Right );
-				if ( texel == Color.White || texel == Color.Black ) {
+				if ( texel == Color.White || texel == Color.Black ||
+					( waterWalkable && texel == Color.Blue ) ) {
 
 					// bottom right
 					texel = GetTexel( rectangle.Bottom, rectangle.Right );
-					if ( texel == Color.White || texel == Color.Black ) {
+					if ( texel == Color.White || texel == Color.Black ||
+						( waterWalkable && texel == Color.Blue ) ) {
 
 						// bottom left
 						texel = GetTexel( rectangle.Bottom, rectangle.X );
-						if ( texel == Color.White || texel == Color.Black ) {
+						if ( texel == Color.White || texel == Color.Black ||
+							( waterWalkable && texel == Color.Blue ) ) {
 							return true;
 						}
 					}
