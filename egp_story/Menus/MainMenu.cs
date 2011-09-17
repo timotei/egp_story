@@ -19,7 +19,7 @@ namespace egp_story.Menus
 	public class MainMenu : Menu
 	{
 		private Vector2 _backgroundPosition = new Vector2( 0, 40 );
-		private float _xDisplacement = -1f;
+		private float _xDisplacement = -0.5f;
 		private int _menuItemSelected = 0;
 
 		public MainMenu( Game game )
