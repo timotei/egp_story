@@ -40,6 +40,12 @@ namespace egp_story.Levels
 						_gameEnded = true;
 
 						_won = !LevelMap.ThePlayer.IsDead;
+						if ( _won ) {
+							LevelMap.Tint = Color.Yellow;
+						}
+						else {
+							LevelMap.Tint = Color.IndianRed;
+						}
 					}
 				}
 				else {
@@ -63,7 +69,7 @@ namespace egp_story.Levels
 			LevelMap.Draw( spriteBatch, gameTime );
 
 			if ( _gameEnded ) {
-				spriteBatch.Draw( _won ? Assets.WinMessage : Assets.LoseMessage, Vector2.Zero );
+				spriteBatch.Draw( _won ? Assets.WinMessage : Assets.LoseMessage, new Vector2( 0, 100 ) );
 			}
 		}
 

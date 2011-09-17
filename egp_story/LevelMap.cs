@@ -26,6 +26,7 @@ namespace egp_story
 		public Enemy RedEnemy { get; private set; }
 
 		public Vector2 Position { get; set; }
+		public Color Tint { get; set; }
 
 		public List<GameActor> ActorObjects { get; set; }
 
@@ -42,6 +43,8 @@ namespace egp_story
 			Mask.GetData<Color>( MaskData );
 			CalculateSpawnPoints( );
 			player.Position = SpawnPoint;
+
+			Tint = Color.White;
 		}
 
 		protected void CalculateSpawnPoints( )
@@ -72,7 +75,7 @@ namespace egp_story
 
 		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
-			spriteBatch.Draw( Image, Position );
+			spriteBatch.Draw( Image, Position, Tint );
 			if ( ThePlayer != null )
 				ThePlayer.Draw( spriteBatch, gameTime );
 
