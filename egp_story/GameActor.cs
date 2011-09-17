@@ -33,6 +33,7 @@ namespace egp_story
 		public AnimatedSprite ProjectileEastAnim { get; set; }
 
 		public AnimatedSprite CurrentAnimation { get; set; }
+		public bool IsDead { get; set; }
 
 		public Rectangle BoundingBox
 		{

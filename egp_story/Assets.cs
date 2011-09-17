@@ -42,6 +42,9 @@ namespace egp_story
 		public static Texture2D DarkvilleFarmsBackground { get; private set; }
 		public static Texture2D DarkvilleFarmsBackgroundMask { get; private set; }
 
+		public static Texture2D LoseMessage { get; private set; }
+		public static Texture2D WinMessage { get; private set; }
+
 		/// <summary>
 		/// A blank 1x1 pixel (used by default for drawing lines)
 		/// </summary>
@@ -72,6 +75,9 @@ namespace egp_story
 			BugWalkSouth = content.Load<Texture2D>( "gfx/mobs/bug_walk_s" );
 			BugWalkNorth = content.Load<Texture2D>( "gfx/mobs/bug_walk_n" );
 			BugWalkEast = content.Load<Texture2D>( "gfx/mobs/bug_walk_e" );
+
+			LoseMessage = content.Load<Texture2D>( "gfx/postcard_lose" );
+			WinMessage = content.Load<Texture2D>( "gfx/postcard_win" );
 
 			// create the blank pixel
 			GraphicsDeviceManager graphicsManager = ( GraphicsDeviceManager )

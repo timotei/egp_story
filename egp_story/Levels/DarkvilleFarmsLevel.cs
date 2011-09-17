@@ -19,6 +19,8 @@ namespace egp_story.Levels
 	{
 		#region IStoryLevel Members
 		private LevelMap _map;
+		private bool _gameEnded;
+		private bool _won;
 
 		public DarkvilleFarmsLevel( Game game )
 		{
@@ -51,12 +53,22 @@ namespace egp_story.Levels
 
 		public void Update( GameTime gameTime )
 		{
-			_map.Update( gameTime );
+			if ( !_gameEnded ) {
+				_map.Update( gameTime );
+
+				if ( _map.ActorObjects.Count == 0 ) {
+					_gameEnded = true;
+				}
+			}
 		}
 
 		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
 			_map.Draw( spriteBatch, gameTime );
+
+			if ( _gameEnded ) {
+
+			}
 		}
 		#endregion
 	}
