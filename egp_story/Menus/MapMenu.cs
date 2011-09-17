@@ -21,16 +21,11 @@ namespace egp_story.Menus
 	public class MapMenu : Menu
 	{
 		private static Vector2[] LOCATIONS = new[] {
-											new Vector2( 180, 137 ),
-											new Vector2( 320, 160 ),
-											new Vector2( 675, 130 ),
-											new Vector2( 515, 305 ),
-											new Vector2( 200, 400 ),
-											new Vector2( 818, 455 ),
-											new Vector2( 484, 652 ),
-											new Vector2( 751, 730 ),
-											new Vector2( 300, 770 ),
-											new Vector2( 755, 835 )
+											new Vector2( 80, 75 ),
+											new Vector2( 420, 76 ),
+											new Vector2( 94, 241 ),
+											new Vector2( 330, 267 ),
+											new Vector2( 226, 200 )
 										};
 		private const float VIEW_OFFSET = 50f;
 
@@ -87,6 +82,20 @@ namespace egp_story.Menus
 			}
 
 			_targetRectangle.Y -= ( int ) difference;
+
+			if ( Keyboard.GetState( ).IsKeyDown2( Keys.Enter ) ) {
+				switch ( _currentLocation ) {
+					case 0: break;
+					case 0: break;
+					case 0: break;
+					case 0: break;
+					case 0: break;
+					default: break;
+				}
+
+
+			}
+
 		}
 
 		public override void Draw( SpriteBatch spriteBatch, GameTime gameTime )
