@@ -50,9 +50,11 @@ namespace egp_story.Levels
 						Won = !LevelMap.ThePlayer.IsDead;
 						if ( Won ) {
 							LevelMap.Tint = Color.Yellow;
+							TheStory.SOUND.Play2D( "Content/sfx/victory.ogg" );
 						}
 						else {
 							LevelMap.Tint = Color.IndianRed;
+							TheStory.SOUND.Play2D( "Content/sfx/human-die-1.ogg" );
 						}
 					}
 

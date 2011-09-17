@@ -12,6 +12,7 @@
 */
 using egp_story.Levels;
 using egp_story.Menus;
+using IrrKlang;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -23,6 +24,8 @@ namespace egp_story
 		public const int GAME_WIDTH = 512;
 		public const int GAME_HEIGHT = 512;
 
+		public static ISoundEngine SOUND { get; set; }
+
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 
@@ -33,6 +36,8 @@ namespace egp_story
 		{
 			graphics = new GraphicsDeviceManager( this );
 			Content.RootDirectory = "Content";
+
+			SOUND = new ISoundEngine( );
 		}
 
 		protected override void Initialize( )
@@ -54,6 +59,8 @@ namespace egp_story
 			Assets.LoadAssets( Content );
 
 			_currentMenu = new MainMenu( this );
+
+			SOUND.Play2D( "Content/sfx/elvish-theme.ogg" );
 		}
 
 		protected override void Update( GameTime gameTime )

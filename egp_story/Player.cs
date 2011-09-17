@@ -49,6 +49,7 @@ namespace egp_story
 			if ( !_attacking && keys.IsKeyDown2( Keys.Space ) ) {
 				_attacking = true;
 				ReplaceCurrentAnimation( );
+				TheStory.SOUND.Play2D( "Content/sfx/bow.ogg" );
 			}
 			else if ( _attacking && CurrentAnimation.Finished ) {
 				_attacking = false;
