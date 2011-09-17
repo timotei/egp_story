@@ -22,17 +22,17 @@ namespace egp_story.Levels
 		{
 			Player player = new Player( game, CardinalDirection.SOUTH,
 				new[] {
-					new AnimatedSprite( Assets.SilverboltShootNorth, 10, 20 ),
-					new AnimatedSprite( Assets.SilverboltShootSouth, 10, 20 ),
-					new AnimatedSprite( Assets.SilverboltShootEast, 10, 20 ) },
+					new AnimatedSprite( Assets.HarapAlbShootNorth, 10, 20 ),
+					new AnimatedSprite( Assets.HarapAlbShootSouth, 10, 20 ),
+					new AnimatedSprite( Assets.HarapAlbShootEast, 10, 20 ) },
 				new[] { 
-					new AnimatedSprite( Assets.SilverboltWalkNorth, 1, 10 ),
-					new AnimatedSprite( Assets.SilverboltWalkSouth, 1, 10 ),
-					new AnimatedSprite( Assets.SilverboltWalkEast, 1, 10 )},
+					new AnimatedSprite( Assets.HarapAlbWalkNorth, 1, 10 ),
+					new AnimatedSprite( Assets.HarapAlbWalkSouth, 1, 10 ),
+					new AnimatedSprite( Assets.HarapAlbWalkEast, 1, 10 )},
 				new[] { 
-					new AnimatedSprite( Assets.SilverboltArrowNorth, 1, 1),
-					new AnimatedSprite( Assets.SilverboltArrowSouth, 1, 1),
-					new AnimatedSprite( Assets.SilverboltArrowEast, 1, 1)
+					new AnimatedSprite( Assets.ArrowNorth, 1, 1),
+					new AnimatedSprite( Assets.ArrowSouth, 1, 1),
+					new AnimatedSprite( Assets.ArrowEast, 1, 1)
 					}
 				);
 
@@ -44,7 +44,7 @@ namespace egp_story.Levels
 					null
 				);
 
-			LevelMap = new LevelMap( player, bugEnemy, Assets.DarkvilleFarmsBackground, Assets.DarkvilleFarmsBackgroundMask );
+			LevelMap = new LevelMap( player, bugEnemy, Assets.ViridesPuirrBackground, Assets.ViridesPuirrBackgroundMask );
 		}
 	}
 }

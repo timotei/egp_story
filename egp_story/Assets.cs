@@ -29,24 +29,24 @@ namespace egp_story
 		public static Texture2D WorldMapTexture { get; private set; }
 		public static Texture2D Dot { get; private set; }
 
-		public static Texture2D SilverboltShootSouth { get; private set; }
-		public static Texture2D SilverboltShootNorth { get; private set; }
-		public static Texture2D SilverboltShootEast { get; private set; }
+		public static Texture2D HarapAlbShootSouth { get; private set; }
+		public static Texture2D HarapAlbShootNorth { get; private set; }
+		public static Texture2D HarapAlbShootEast { get; private set; }
 
-		public static Texture2D SilverboltWalkSouth { get; private set; }
-		public static Texture2D SilverboltWalkNorth { get; private set; }
-		public static Texture2D SilverboltWalkEast { get; private set; }
+		public static Texture2D HarapAlbWalkSouth { get; private set; }
+		public static Texture2D HarapAlbWalkNorth { get; private set; }
+		public static Texture2D HarapAlbWalkEast { get; private set; }
 
 		public static Texture2D BugWalkSouth { get; private set; }
 		public static Texture2D BugWalkNorth { get; private set; }
 		public static Texture2D BugWalkEast { get; private set; }
 
-		public static Texture2D SilverboltArrowNorth { get; private set; }
-		public static Texture2D SilverboltArrowSouth { get; private set; }
-		public static Texture2D SilverboltArrowEast { get; private set; }
+		public static Texture2D ArrowNorth { get; private set; }
+		public static Texture2D ArrowSouth { get; private set; }
+		public static Texture2D ArrowEast { get; private set; }
 
-		public static Texture2D DarkvilleFarmsBackground { get; private set; }
-		public static Texture2D DarkvilleFarmsBackgroundMask { get; private set; }
+		public static Texture2D ViridesPuirrBackground { get; private set; }
+		public static Texture2D ViridesPuirrBackgroundMask { get; private set; }
 
 		public static Texture2D LoseMessage { get; private set; }
 		public static Texture2D WinMessage { get; private set; }
@@ -70,20 +70,20 @@ namespace egp_story
 
 			Dot = content.Load<Texture2D>( "gfx/dot" );
 
-			SilverboltShootSouth = content.Load<Texture2D>( "gfx/silverbolt/shoot_s" );
-			SilverboltShootNorth = content.Load<Texture2D>( "gfx/silverbolt/shoot_n" );
-			SilverboltShootEast = content.Load<Texture2D>( "gfx/silverbolt/shoot_e" );
+			HarapAlbShootSouth = content.Load<Texture2D>( "gfx/harapalb/shoot_s" );
+			HarapAlbShootNorth = content.Load<Texture2D>( "gfx/harapalb/shoot_n" );
+			HarapAlbShootEast = content.Load<Texture2D>( "gfx/harapalb/shoot_e" );
 
-			SilverboltWalkSouth = content.Load<Texture2D>( "gfx/silverbolt/walk_s" );
-			SilverboltWalkNorth = content.Load<Texture2D>( "gfx/silverbolt/walk_n" );
-			SilverboltWalkEast = content.Load<Texture2D>( "gfx/silverbolt/walk_e" );
+			HarapAlbWalkSouth = content.Load<Texture2D>( "gfx/harapalb/walk_s" );
+			HarapAlbWalkNorth = content.Load<Texture2D>( "gfx/harapalb/walk_n" );
+			HarapAlbWalkEast = content.Load<Texture2D>( "gfx/harapalb/walk_e" );
 
-			SilverboltArrowEast = content.Load<Texture2D>( "gfx/silverbolt/arrow_e" );
-			SilverboltArrowNorth = content.Load<Texture2D>( "gfx/silverbolt/arrow_n" );
-			SilverboltArrowSouth = content.Load<Texture2D>( "gfx/silverbolt/arrow_s" );
+			ArrowEast = content.Load<Texture2D>( "gfx/harapalb/arrow_e" );
+			ArrowNorth = content.Load<Texture2D>( "gfx/harapalb/arrow_n" );
+			ArrowSouth = content.Load<Texture2D>( "gfx/harapalb/arrow_s" );
 
-			DarkvilleFarmsBackground = content.Load<Texture2D>( "gfx/levels/darkville_farms" );
-			DarkvilleFarmsBackgroundMask = content.Load<Texture2D>( "gfx/levels/darkville_farms_mask" );
+			ViridesPuirrBackground = content.Load<Texture2D>( "gfx/levels/viridespuirr" );
+			ViridesPuirrBackgroundMask = content.Load<Texture2D>( "gfx/levels/viridespuirr_mask" );
 
 			BugWalkSouth = content.Load<Texture2D>( "gfx/mobs/bug_walk_s" );
 			BugWalkNorth = content.Load<Texture2D>( "gfx/mobs/bug_walk_n" );

@@ -64,65 +64,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gfx\silverbolt\arrow_e.png">
-      <Name>arrow_e</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gfx\silverbolt\arrow_n.png">
-      <Name>arrow_n</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gfx\silverbolt\arrow_s.png">
-      <Name>arrow_s</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gfx\silverbolt\shoot_e.png">
-      <Name>shoot_e</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gfx\silverbolt\shoot_n.png">
-      <Name>shoot_n</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gfx\silverbolt\shoot_s.png">
-      <Name>shoot_s</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gfx\silverbolt\walk_e.png">
-      <Name>walk_e</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gfx\silverbolt\walk_n.png">
-      <Name>walk_n</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gfx\silverbolt\walk_s.png">
-      <Name>walk_s</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="gfx\levels\darkville_farms.png">
-      <Name>darkville_farms</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-    <Compile Include="gfx\levels\darkville_farms_mask.png">
-      <Name>darkville_farms_mask</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="gfx\mobs\bug_walk_e.png">
       <Name>bug_walk_e</Name>
       <Importer>TextureImporter</Importer>
@@ -183,6 +124,67 @@
   <ItemGroup>
     <Compile Include="gfx\how_to_play.png">
       <Name>how_to_play</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gfx\levels\viridespuirr.png">
+      <Name>viridespuirr</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\levels\viridespuirr_mask.png">
+      <Name>viridespuirr_mask</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gfx\harapalb\arrow_n.png">
+      <Name>arrow_n</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\harapalb\arrow_s.png">
+      <Name>arrow_s</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\harapalb\shoot_e.png">
+      <Name>shoot_e</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\harapalb\shoot_n.png">
+      <Name>shoot_n</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\harapalb\shoot_s.png">
+      <Name>shoot_s</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\harapalb\walk_e.png">
+      <Name>walk_e</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\harapalb\walk_n.png">
+      <Name>walk_n</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+    <Compile Include="gfx\harapalb\walk_s.png">
+      <Name>walk_s</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gfx\harapalb\arrow_e.png">
+      <Name>arrow_e</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>
