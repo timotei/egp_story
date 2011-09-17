@@ -16,8 +16,8 @@ namespace egp_story.Levels
 {
 	public class Pandorashys : StoryLevel
 	{
-		public Pandorashys( Game game )
-			: base( game )
+		public Pandorashys( Game game, int index )
+			: base( game, index )
 		{
 			Player player = Player.CreateNewHarapAlb( game );
 			Enemy bugEnemy = Enemy.CreateBugEnemy( game );

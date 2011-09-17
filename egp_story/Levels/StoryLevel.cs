@@ -19,15 +19,17 @@ namespace egp_story.Levels
 	public abstract class StoryLevel : IUpdateable, IDrawable
 	{
 		public bool LevelEnded { get; protected set; }
+		public bool Won { get; protected set; }
 		public LevelMap LevelMap { get; protected set; }
 		public Game Game { get; protected set; }
+		public int LevelIndex { get; protected set; }
 
 		protected bool _gameEnded;
-		protected bool _won;
 
-		public StoryLevel( Game game )
+		public StoryLevel( Game game, int index )
 		{
 			Game = game;
+			LevelIndex = index;
 		}
 
 		#region IUpdateable Members
@@ -45,8 +47,8 @@ namespace egp_story.Levels
 						LevelMap.ThePlayer.IsDead ) {
 						_gameEnded = true;
 
-						_won = !LevelMap.ThePlayer.IsDead;
-						if ( _won ) {
+						Won = !LevelMap.ThePlayer.IsDead;
+						if ( Won ) {
 							LevelMap.Tint = Color.Yellow;
 						}
 						else {
@@ -80,7 +82,7 @@ namespace egp_story.Levels
 			LevelMap.Draw( spriteBatch, gameTime );
 
 			if ( _gameEnded ) {
-				spriteBatch.Draw( _won ? Assets.WinMessage : Assets.LoseMessage, new Vector2( 0, 100 ) );
+				spriteBatch.Draw( Won ? Assets.WinMessage : Assets.LoseMessage, new Vector2( 0, 100 ) );
 			}
 		}
 

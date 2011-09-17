@@ -57,13 +57,6 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="gfx\dot.png">
-      <Name>dot</Name>
-      <Importer>TextureImporter</Importer>
-      <Processor>TextureProcessor</Processor>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
     <Compile Include="gfx\mobs\bug_walk_e.png">
       <Name>bug_walk_e</Name>
       <Importer>TextureImporter</Importer>
@@ -227,6 +220,13 @@
     </Compile>
     <Compile Include="gfx\levels\pandorashys_mask.png">
       <Name>pandorashys_mask</Name>
+      <Importer>TextureImporter</Importer>
+      <Processor>TextureProcessor</Processor>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="gfx\cross.png">
+      <Name>cross</Name>
       <Importer>TextureImporter</Importer>
       <Processor>TextureProcessor</Processor>
     </Compile>

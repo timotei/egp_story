@@ -27,7 +27,7 @@ namespace egp_story
 		public static Texture2D HowToPlayBackground { get; private set; }
 
 		public static Texture2D WorldMapTexture { get; private set; }
-		public static Texture2D Dot { get; private set; }
+		public static Texture2D Cross { get; private set; }
 
 		public static Texture2D HarapAlbShootSouth { get; private set; }
 		public static Texture2D HarapAlbShootNorth { get; private set; }
@@ -80,7 +80,7 @@ namespace egp_story
 
 			WorldMapTexture = content.Load<Texture2D>( "gfx/WorldMap" );
 
-			Dot = content.Load<Texture2D>( "gfx/dot" );
+			Cross = content.Load<Texture2D>( "gfx/cross" );
 
 			HarapAlbShootSouth = content.Load<Texture2D>( "gfx/harapalb/shoot_s" );
 			HarapAlbShootNorth = content.Load<Texture2D>( "gfx/harapalb/shoot_n" );

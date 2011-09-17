@@ -29,6 +29,7 @@ namespace egp_story.Menus
 											new Vector2( 226, 200 )
 										};
 		private const float VIEW_OFFSET = 50f;
+		public static bool[] WON_STATUSES = new bool[LOCATIONS.Length];
 
 		private int _currentLocation;
 		private Rectangle _targetRectangle;
@@ -38,6 +39,11 @@ namespace egp_story.Menus
 		{
 			_targetRectangle = new Rectangle( 0, 0, TheStory.GAME_WIDTH, Assets.WorldMapTexture.Height );
 			_currentLocation = 0;
+			foreach ( bool status in WON_STATUSES ) {
+				if ( status == true ) {
+					_currentLocation = ( _currentLocation + 1 ) % LOCATIONS.Length;
+				}
+			}
 		}
 
 		#region Menu Members
@@ -54,12 +60,13 @@ namespace egp_story.Menus
 			_targetRectangle.Y = ( int ) MathHelper.Clamp( _targetRectangle.Y,
 				TheStory.GAME_HEIGHT - Assets.WorldMapTexture.Height, 0 );
 
+			int prevLocation = _currentLocation;
 			// select location
 			if ( Keyboard.GetState( ).IsKeyDown2( Keys.Left ) ) {
-				_currentLocation = ( _currentLocation - 1 ) % LOCATIONS.Length;
+				--_currentLocation;
 			}
 			else if ( Keyboard.GetState( ).IsKeyDown2( Keys.Right ) ) {
-				_currentLocation = ( _currentLocation + 1 ) % LOCATIONS.Length;
+				++_currentLocation;
 			}
 
 			_currentLocation = ( int ) MathHelper.Clamp( _currentLocation, 0, LOCATIONS.Length - 1 );
@@ -86,11 +93,11 @@ namespace egp_story.Menus
 
 			if ( Keyboard.GetState( ).IsKeyDown2( Keys.Enter ) ) {
 				switch ( _currentLocation ) {
-					case 0: SelectedLevel = new ViridesPuirr( Game ); break;
-					case 1: SelectedLevel = new Calipuirr( Game ); break;
-					case 2: SelectedLevel = new EllyuteionLake( Game ); break;
-					case 3: SelectedLevel = new MirrosHills( Game ); break;
-					case 4: SelectedLevel = new Pandorashys( Game ); break;
+					case 0: SelectedLevel = new ViridesPuirr( Game, 0 ); break;
+					case 1: SelectedLevel = new Calipuirr( Game, 1 ); break;
+					case 2: SelectedLevel = new EllyuteionLake( Game, 2 ); break;
+					case 3: SelectedLevel = new MirrosHills( Game, 3 ); break;
+					case 4: SelectedLevel = new Pandorashys( Game, 4 ); break;
 					default: break;
 				}
 			}
@@ -101,9 +108,17 @@ namespace egp_story.Menus
 		{
 			spriteBatch.Draw( Assets.WorldMapTexture, _targetRectangle, Color.White );
 
+			// draw completed levels
+			for ( int i = 0; i < LOCATIONS.Length; ++i ) {
+				if ( WON_STATUSES[i] == true ) {
+					spriteBatch.Draw( Assets.Cross, LOCATIONS[i] + new Vector2( 0, _targetRectangle.Y ),
+						Assets.Cross.Bounds.Center.ToVector2( ), Color.Yellow );
+				}
+			}
+
 			// draw the location
-			spriteBatch.Draw( Assets.Dot, LOCATIONS[_currentLocation] + new Vector2( 0, _targetRectangle.Y ),
-				Assets.Dot.Bounds.Center.ToVector2( ) );
+			spriteBatch.Draw( Assets.Cross, LOCATIONS[_currentLocation] + new Vector2( 0, _targetRectangle.Y ),
+				Assets.Cross.Bounds.Center.ToVector2( ), Color.Red );
 		}
 		#endregion
 	}

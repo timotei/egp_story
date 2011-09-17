@@ -67,6 +67,10 @@ namespace egp_story
 				_currentLevel.Update( gameTime );
 
 				if ( _currentLevel.LevelEnded ) {
+					if ( _currentLevel.Won ) {
+						MapMenu.WON_STATUSES[_currentLevel.LevelIndex] = true;
+					}
+					_currentMenu = new MapMenu( this );
 					_currentLevel = null;
 				}
 			}
@@ -76,9 +80,9 @@ namespace egp_story
 				if ( _currentMenu.SelectedLevel != null ) {
 					_currentLevel = _currentMenu.SelectedLevel;
 					_currentMenu.SelectedLevel = null;
+					_currentMenu = null;
 				}
-
-				if ( _currentMenu.SelectedMenu != null ) {
+				else if ( _currentMenu.SelectedMenu != null ) {
 					_currentMenu = _currentMenu.SelectedMenu;
 					_currentMenu.SelectedMenu = null;
 				}

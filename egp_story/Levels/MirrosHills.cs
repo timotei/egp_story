@@ -16,8 +16,8 @@ namespace egp_story.Levels
 {
 	public class MirrosHills : StoryLevel
 	{
-		public MirrosHills( Game game )
-			: base( game )
+		public MirrosHills( Game game, int index )
+			: base( game, index )
 		{
 			Player player = Player.CreateNewHarapAlb( game );
 			Enemy bugEnemy = Enemy.CreateBugEnemy( game );

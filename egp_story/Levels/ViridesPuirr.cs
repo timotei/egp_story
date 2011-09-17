@@ -17,8 +17,8 @@ namespace egp_story.Levels
 {
 	public class ViridesPuirr : StoryLevel
 	{
-		public ViridesPuirr( Game game )
-			: base( game )
+		public ViridesPuirr( Game game, int index )
+			: base( game, index )
 		{
 			Player player = Player.CreateNewHarapAlb( game );
 			Enemy bugEnemy = Enemy.CreateBugEnemy( game );

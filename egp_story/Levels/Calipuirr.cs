@@ -16,8 +16,8 @@ namespace egp_story.Levels
 {
 	public class Calipuirr : StoryLevel
 	{
-		public Calipuirr( Game game )
-			: base( game )
+		public Calipuirr( Game game, int index )
+			: base( game, index )
 		{
 			Player player = Player.CreateNewHarapAlb( game );
 			Enemy bugEnemy = Enemy.CreateBugEnemy( game );
