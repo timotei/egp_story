@@ -67,7 +67,7 @@ namespace egp_story
 					}
 					else {
 						displacement.X = _random.Next( 5 ) - 2;
-						displacement.Y = _random.Next( 5 ) - 2;
+						displacement.Y = displacement.X == 0 ? _random.Next( 5 ) - 2 : 0;
 						_lastDisplacementUsedTimes = 0;
 					}
 
