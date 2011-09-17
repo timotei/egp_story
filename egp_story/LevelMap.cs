@@ -53,7 +53,7 @@ namespace egp_story
 				if ( MaskData[i] == Color.Black ) {
 					SpawnPoint = new Vector2( i % Mask.Width, i / Mask.Width );
 				}
-				else if ( MaskData[i] == Color.Red ) {
+				else if ( MaskData[i] == Color.Red && RedEnemy != null ) {
 					Enemy clone =  new Enemy( RedEnemy );
 					clone.Position = new Vector2( i % Mask.Width, i / Mask.Width );
 					ActorObjects.Add( clone );

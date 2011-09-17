@@ -48,6 +48,18 @@ namespace egp_story
 		public static Texture2D ViridesPuirrBackground { get; private set; }
 		public static Texture2D ViridesPuirrBackgroundMask { get; private set; }
 
+		public static Texture2D CalipuirrBackground { get; private set; }
+		public static Texture2D CalipuirrBackgroundMask { get; private set; }
+
+		public static Texture2D EllyuteionLakeBackground { get; private set; }
+		public static Texture2D EllyuteionLakeBackgroundMask { get; private set; }
+
+		public static Texture2D MirrosHillsBackground { get; private set; }
+		public static Texture2D MirrosHillsBackgroundMask { get; private set; }
+
+		public static Texture2D PandorashysBackground { get; private set; }
+		public static Texture2D PandorashysBackgroundMask { get; private set; }
+
 		public static Texture2D LoseMessage { get; private set; }
 		public static Texture2D WinMessage { get; private set; }
 
@@ -84,6 +96,18 @@ namespace egp_story
 
 			ViridesPuirrBackground = content.Load<Texture2D>( "gfx/levels/viridespuirr" );
 			ViridesPuirrBackgroundMask = content.Load<Texture2D>( "gfx/levels/viridespuirr_mask" );
+
+			CalipuirrBackground = content.Load<Texture2D>( "gfx/levels/calipuirr" );
+			CalipuirrBackgroundMask = content.Load<Texture2D>( "gfx/levels/calipuirr_mask" );
+
+			EllyuteionLakeBackground = content.Load<Texture2D>( "gfx/levels/ellyuteion_lake" );
+			EllyuteionLakeBackgroundMask = content.Load<Texture2D>( "gfx/levels/ellyuteion_lake_mask" );
+
+			MirrosHillsBackground = content.Load<Texture2D>( "gfx/levels/mirros_hills" );
+			MirrosHillsBackgroundMask = content.Load<Texture2D>( "gfx/levels/mirros_hills_mask" );
+
+			PandorashysBackground = content.Load<Texture2D>( "gfx/levels/pandorashys" );
+			PandorashysBackgroundMask = content.Load<Texture2D>( "gfx/levels/pandorashys_mask" );
 
 			BugWalkSouth = content.Load<Texture2D>( "gfx/mobs/bug_walk_s" );
 			BugWalkNorth = content.Load<Texture2D>( "gfx/mobs/bug_walk_n" );

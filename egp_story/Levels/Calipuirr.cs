@@ -19,6 +19,8 @@ namespace egp_story.Levels
 		public Calipuirr( Game game )
 			: base( game )
 		{
+			Player player = Player.CreateNewHarapAlb( game );
+			LevelMap = new LevelMap( player, null, Assets.CalipuirrBackground, Assets.CalipuirrBackgroundMask );
 		}
 	}
 }

@@ -19,6 +19,8 @@ namespace egp_story.Levels
 		public MirrosHills( Game game )
 			: base( game )
 		{
+			Player player = Player.CreateNewHarapAlb( game );
+			LevelMap = new LevelMap( player, null, Assets.MirrosHillsBackground, Assets.MirrosHillsBackgroundMask );
 		}
 	}
 }

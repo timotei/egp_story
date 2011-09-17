@@ -20,6 +20,8 @@ namespace egp_story.Levels
 		public EllyuteionLake( Game game )
 			: base( game )
 		{
+			Player player = Player.CreateNewHarapAlb( game );
+			LevelMap = new LevelMap( player, null, Assets.EllyuteionLakeBackground, Assets.EllyuteionLakeBackgroundMask );
 		}
 	}
 }

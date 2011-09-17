@@ -53,9 +53,14 @@ namespace egp_story.Levels
 							LevelMap.Tint = Color.IndianRed;
 						}
 					}
+
+					if ( Keyboard.GetState( ).IsKeyDown2( Keys.Back ) ) {
+						// go back to menu
+						LevelEnded = true;
+					}
 				}
 				else {
-					if ( Keyboard.GetState( ).IsKeyDown( Keys.Enter ) ) {
+					if ( Keyboard.GetState( ).IsKeyDown2( Keys.Enter ) ) {
 						// go back to menu
 						LevelEnded = true;
 					}
