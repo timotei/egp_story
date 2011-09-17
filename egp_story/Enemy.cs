@@ -114,5 +114,16 @@ namespace egp_story
 					null
 				);
 		}
+
+		public static Enemy CreateSkeletEnemy( Game game )
+		{
+			return new Enemy( game, CardinalDirection.SOUTH, null,
+				new[] { 
+					new AnimatedSprite( Assets.SkeletWalkNorth, 3, 10 ),
+					new AnimatedSprite( Assets.SkeletWalkSouth, 5, 10 ),
+					new AnimatedSprite( Assets.SkeletWalkEast, 2, 5 )},
+					null
+				);
+		}
 	}
 }

@@ -41,6 +41,10 @@ namespace egp_story
 		public static Texture2D BugWalkNorth { get; private set; }
 		public static Texture2D BugWalkEast { get; private set; }
 
+		public static Texture2D SkeletWalkSouth { get; private set; }
+		public static Texture2D SkeletWalkNorth { get; private set; }
+		public static Texture2D SkeletWalkEast { get; private set; }
+
 		public static Texture2D ArrowNorth { get; private set; }
 		public static Texture2D ArrowSouth { get; private set; }
 		public static Texture2D ArrowEast { get; private set; }
@@ -112,6 +116,10 @@ namespace egp_story
 			BugWalkSouth = content.Load<Texture2D>( "gfx/mobs/bug_walk_s" );
 			BugWalkNorth = content.Load<Texture2D>( "gfx/mobs/bug_walk_n" );
 			BugWalkEast = content.Load<Texture2D>( "gfx/mobs/bug_walk_e" );
+
+			SkeletWalkSouth = content.Load<Texture2D>( "gfx/mobs/skelet_walk_s" );
+			SkeletWalkNorth = content.Load<Texture2D>( "gfx/mobs/skelet_walk_n" );
+			SkeletWalkEast = content.Load<Texture2D>( "gfx/mobs/skelet_walk_e" );
 
 			LoseMessage = content.Load<Texture2D>( "gfx/postcard_lose" );
 			WinMessage = content.Load<Texture2D>( "gfx/postcard_win" );
