@@ -94,12 +94,12 @@ namespace egp_story
 				_lastDisplacement = displacement;
 
 				if ( displacement.Y == 0 ) {
-					if ( displacement.X > 0 ) FacingDirection = CardinalDirection.WEST;
+					if ( displacement.X < 0 ) FacingDirection = CardinalDirection.WEST;
 					else FacingDirection = CardinalDirection.EAST;
 				}
 
 				if ( displacement.X == 0 ) {
-					if ( displacement.Y > 0 ) FacingDirection = CardinalDirection.NORTH;
+					if ( displacement.Y < 0 ) FacingDirection = CardinalDirection.NORTH;
 					else FacingDirection = CardinalDirection.SOUTH;
 				}
 				ReplaceCurrentAnimation( );
