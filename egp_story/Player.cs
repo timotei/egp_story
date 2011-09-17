@@ -119,7 +119,12 @@ namespace egp_story
 						bool collides = false;
 						foreach ( GameActor actor in levelMap.ActorObjects ) {
 							if ( actor.BoundingBox.Intersects( newBoundingBox ) ) {
-								collides = true;
+								if ( actor.IsEnemy ) {
+									this.IsDead = true;
+								}
+								else {
+									collides = true;
+								}
 								break;
 							}
 						}
