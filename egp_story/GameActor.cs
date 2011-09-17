@@ -54,6 +54,7 @@ namespace egp_story
 		protected GraphicsDeviceManager _graphics;
 		protected Game _game;
 		protected bool _attacking;
+		protected bool _walking;
 
 		public GameActor( Game game )
 		{

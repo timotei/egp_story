@@ -48,12 +48,10 @@ namespace egp_story
 			KeyboardState keys = Keyboard.GetState( );
 			if ( !_attacking && keys.IsKeyDown2( Keys.Space ) ) {
 				_attacking = true;
-				ReplaceCurrentAnimation( );
 				TheStory.SOUND.Play2D( "Content/sfx/bow.ogg" );
 			}
 			else if ( _attacking && CurrentAnimation.Finished ) {
 				_attacking = false;
-				ReplaceCurrentAnimation( );
 
 				// create new projectile
 				AnimatedSprite projectileAnim = null;
@@ -81,34 +79,33 @@ namespace egp_story
 					} );
 			}
 
+			_walking = false;
 			// cannot move while attacking
 			if ( !_attacking ) {
-				bool moved = false;
 				if ( keys.IsKeyDown( Keys.Left ) ) {
 					FacingDirection = CardinalDirection.WEST;
-					moved = true;
+					_walking = true;
 				}
 				else if ( keys.IsKeyDown( Keys.Right ) ) {
 					FacingDirection = CardinalDirection.EAST;
-					moved = true;
+					_walking = true;
 				}
 				else if ( keys.IsKeyDown( Keys.Down ) ) {
 					FacingDirection = CardinalDirection.SOUTH;
-					moved = true;
+					_walking = true;
 				}
 				else if ( keys.IsKeyDown( Keys.Up ) ) {
 					FacingDirection = CardinalDirection.NORTH;
-					moved = true;
+					_walking = true;
 				}
 
-				if ( moved ) {
-					ReplaceCurrentAnimation( );
+				if ( _walking ) {
 					// check if we can move there.
 					Vector2 newPosition = ( Position + FacingDirection.ToVelocity( ) * 2 );
 					Rectangle newBoundingBox = CurrentAnimation.FrameBoundingBox;
-					newBoundingBox.Width -= 10;
-					newBoundingBox.Height -= 10;
-					newBoundingBox.Offset( ( int ) newPosition.X, ( int ) newPosition.Y );
+					newBoundingBox.Width -= 15;
+					newBoundingBox.Height -= 15;
+					newBoundingBox.Offset( ( int ) newPosition.X + 5, ( int ) newPosition.Y + 5 );
 
 					if ( levelMap.CheckRectangleBounds( newBoundingBox ) ) {
 						// check collision with other objects
@@ -131,8 +128,13 @@ namespace egp_story
 					}
 				}
 			}
+			ReplaceCurrentAnimation( );
 
 			if ( CurrentAnimation != null ) {
+				if ( !_attacking ) {
+					CurrentAnimation.Playing = _walking;
+				}
+
 				CurrentAnimation.Update( gameTime );
 			}
 
