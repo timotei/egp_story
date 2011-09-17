@@ -75,10 +75,12 @@ namespace egp_story
 
 				if ( _currentMenu.SelectedLevel != null ) {
 					_currentLevel = _currentMenu.SelectedLevel;
+					_currentMenu.SelectedLevel = null;
 				}
 
 				if ( _currentMenu.SelectedMenu != null ) {
 					_currentMenu = _currentMenu.SelectedMenu;
+					_currentMenu.SelectedMenu = null;
 				}
 			}
 

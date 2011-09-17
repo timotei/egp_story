@@ -18,9 +18,9 @@ namespace egp_story.Menus
 {
 	public abstract class Menu : IDrawable, IUpdateable
 	{
-		public StoryLevel SelectedLevel { get; protected set; }
-		public Menu SelectedMenu { get; protected set; }
-		public Game Game { get; protected set; }
+		public StoryLevel SelectedLevel { get; set; }
+		public Menu SelectedMenu { get; set; }
+		public Game Game { get; set; }
 
 		public Menu( Game game )
 		{
