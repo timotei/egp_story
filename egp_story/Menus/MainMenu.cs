@@ -1,5 +1,4 @@
-﻿using egp_story.Levels;
-/*
+﻿/*
    Copyright (C) 2011 by Timotei Dolean <timotei21@gmail.com>
 
    This program is free software; you can redistribute it and/or modify
@@ -17,29 +16,29 @@ using Microsoft.Xna.Framework.Input;
 
 namespace egp_story.Menus
 {
-	public class MainMenu : IMenu
+	public class MainMenu : Menu
 	{
 		private Vector2 _backgroundPosition = new Vector2( 0, 40 );
 		private float _xDisplacement = -1f;
 		private int _menuItemSelected = 0;
-		private Game _game;
 
 		public MainMenu( Game game )
+			: base( game )
 		{
-			_game = game;
 		}
 
-		public void Update( GameTime gameTime )
+		public override void Update( GameTime gameTime )
 		{
-			if ( Keyboard.GetState( ).IsKeyDown( Keys.Enter ) ) {
+			if ( Keyboard.GetState( ).IsKeyDown2( Keys.Enter ) ) {
 				switch ( _menuItemSelected ) {
 					case 0:
-						SelectedMenu = new MapMenu( );
+						SelectedMenu = new MapMenu( Game );
 						break;
 					case 1:
+						SelectedMenu = new HowToPlayMenu( Game );
 						break;
 					case 2:
-						_game.Exit( );
+						Game.Exit( );
 						break;
 					default:
 						// nothing.
@@ -65,7 +64,7 @@ namespace egp_story.Menus
 			}
 		}
 
-		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
+		public override void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
 			spriteBatch.Draw( Assets.MainMenuBackground, _backgroundPosition );
 
@@ -83,13 +82,5 @@ namespace egp_story.Menus
 			spriteBatch.DrawString( Assets.MainFont, "7 days game by Timotei Dolean",
 				new Vector2( 150, 512 - 35 ), Color.White );
 		}
-
-		#region IMenu Members
-
-		public StoryLevel SelectedLevel { get { return null; } }
-
-		public IMenu SelectedMenu { get; private set; }
-
-		#endregion
 	}
 }

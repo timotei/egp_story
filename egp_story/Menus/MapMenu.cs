@@ -18,7 +18,7 @@ using Microsoft.Xna.Framework.Input;
 
 namespace egp_story.Menus
 {
-	public class MapMenu : IMenu
+	public class MapMenu : Menu
 	{
 		private static Vector2[] LOCATIONS = new[] {
 											new Vector2( 180, 137 ),
@@ -37,7 +37,8 @@ namespace egp_story.Menus
 		private int _currentLocation;
 		private Rectangle _targetRectangle;
 
-		public MapMenu( )
+		public MapMenu( Game game )
+			: base( game )
 		{
 			_targetRectangle = new Rectangle( 0, 0, TheStory.GAME_WIDTH, Assets.WorldMapTexture.Height );
 			_currentLocation = 0;
@@ -45,7 +46,7 @@ namespace egp_story.Menus
 
 		#region Menu Members
 
-		public void Update( GameTime gameTime )
+		public override void Update( GameTime gameTime )
 		{
 			if ( Keyboard.GetState( ).IsKeyDown( Keys.Down ) ) {
 				_targetRectangle.Y -= 10;
@@ -88,7 +89,7 @@ namespace egp_story.Menus
 			_targetRectangle.Y -= ( int ) difference;
 		}
 
-		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
+		public override void Draw( SpriteBatch spriteBatch, GameTime gameTime )
 		{
 			spriteBatch.Draw( Assets.WorldMapTexture, _targetRectangle, Color.White );
 
@@ -96,14 +97,6 @@ namespace egp_story.Menus
 			spriteBatch.Draw( Assets.Dot, LOCATIONS[_currentLocation] + new Vector2( 0, _targetRectangle.Y ),
 				Assets.Dot.Bounds.Center.ToVector2( ) );
 		}
-		#endregion
-
-		#region IMenu Members
-
-		public Levels.StoryLevel SelectedLevel { get; private set; }
-
-		public IMenu SelectedMenu { get; private set; }
-
 		#endregion
 	}
 }

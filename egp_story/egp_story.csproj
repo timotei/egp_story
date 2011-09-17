@@ -118,11 +118,12 @@
     <Compile Include="IDrawable.cs" />
     <Compile Include="IUpdateable.cs" />
     <Compile Include="LevelMap.cs" />
+    <Compile Include="Menus\HowToPlayMenu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Extensions\KeyboardStateExtensions.cs" />
     <Compile Include="Levels\DarkvilleFarmsLevel.cs" />
     <Compile Include="Levels\StoryLevel.cs" />
-    <Compile Include="Menus\IMenu.cs" />
+    <Compile Include="Menus\Menu.cs" />
     <Compile Include="Menus\MainMenu.cs" />
     <Compile Include="Menus\MapMenu.cs" />
     <Compile Include="Extensions\PointExtensions.cs" />

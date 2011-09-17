@@ -27,7 +27,7 @@ namespace egp_story
 		private SpriteBatch spriteBatch;
 
 		private StoryLevel _currentLevel;
-		private IMenu _currentMenu;
+		private Menu _currentMenu;
 
 		public TheStory( )
 		{

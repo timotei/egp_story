@@ -23,6 +23,8 @@ namespace egp_story
 
 		public static Texture2D MainMenuBackground { get; private set; }
 		public static Texture2D MainMenuFrame { get; private set; }
+		public static Texture2D FrameBackground { get; private set; }
+		public static Texture2D HowToPlayBackground { get; private set; }
 
 		public static Texture2D WorldMapTexture { get; private set; }
 		public static Texture2D Dot { get; private set; }
@@ -61,6 +63,9 @@ namespace egp_story
 
 			MainMenuBackground = content.Load<Texture2D>( "gfx/main_menu_background" );
 			MainMenuFrame = content.Load<Texture2D>( "gfx/main_menu_frame" );
+			FrameBackground = content.Load<Texture2D>( "gfx/frame_background" );
+			HowToPlayBackground = content.Load<Texture2D>( "gfx/how_to_play" );
+
 			WorldMapTexture = content.Load<Texture2D>( "gfx/WorldMap" );
 
 			Dot = content.Load<Texture2D>( "gfx/dot" );
