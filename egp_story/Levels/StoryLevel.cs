@@ -85,6 +85,8 @@ namespace egp_story.Levels
 
 			if ( _gameEnded ) {
 				spriteBatch.Draw( Won ? Assets.WinMessage : Assets.LoseMessage, new Vector2( 0, 100 ) );
+
+				spriteBatch.DrawString( Assets.StyledFont, "Press <ENTER> to continue", new Vector2( 150, 450 ), Color.Red );
 			}
 		}
 

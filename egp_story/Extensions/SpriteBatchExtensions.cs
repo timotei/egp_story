@@ -1,4 +1,4 @@
-﻿using System;
+﻿
 /*
    Copyright (C) 2011 by Timotei Dolean <timotei21@gmail.com>
 
@@ -11,6 +11,7 @@
 
    See the COPYING file for more details.
 */
+using System;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
