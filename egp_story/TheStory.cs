@@ -53,7 +53,7 @@ namespace egp_story
 			spriteBatch = new SpriteBatch( GraphicsDevice );
 			Assets.LoadAssets( Content );
 
-			_currentMenu = new MainMenu( );
+			_currentMenu = new MainMenu( this );
 		}
 
 		protected override void Update( GameTime gameTime )
