@@ -65,9 +65,6 @@ namespace egp_story
 
 		protected override void Update( GameTime gameTime )
 		{
-			if ( Keyboard.GetState( ).IsKeyDown( Keys.Escape ) )
-				Exit( );
-
 			base.Update( gameTime );
 
 			if ( _currentLevel != null ) {
