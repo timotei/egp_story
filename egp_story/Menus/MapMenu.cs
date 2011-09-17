@@ -101,6 +101,9 @@ namespace egp_story.Menus
 					default: break;
 				}
 			}
+			else if ( Keyboard.GetState( ).IsKeyDown2( Keys.Back ) ) {
+				SelectedMenu = new MainMenu( Game );
+			}
 
 		}
 

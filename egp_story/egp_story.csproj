@@ -126,6 +126,7 @@
     <Compile Include="Levels\MirrosHills.cs" />
     <Compile Include="Levels\Pandorashys.cs" />
     <Compile Include="Levels\ViridesPuirr.cs" />
+    <Compile Include="Menus\StoryTellingMenu.cs" />
     <Compile Include="Menus\HowToPlayMenu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Extensions\KeyboardStateExtensions.cs" />

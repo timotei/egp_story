@@ -32,7 +32,7 @@ namespace egp_story.Menus
 			if ( Keyboard.GetState( ).IsKeyDown2( Keys.Enter ) ) {
 				switch ( _menuItemSelected ) {
 					case 0:
-						SelectedMenu = new MapMenu( Game );
+						SelectedMenu = new StoryTellingMenu( Game, 0, null, new MapMenu( Game ) );
 						break;
 					case 1:
 						SelectedMenu = new HowToPlayMenu( Game );

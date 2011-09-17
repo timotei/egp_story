@@ -74,7 +74,18 @@ namespace egp_story
 					if ( _currentLevel.Won ) {
 						MapMenu.WON_STATUSES[_currentLevel.LevelIndex] = true;
 					}
-					_currentMenu = new MapMenu( this );
+
+					bool finished = true;
+					foreach ( var won in MapMenu.WON_STATUSES ) {
+						if ( !won ) {
+							finished = false;
+						}
+					}
+
+					if ( !finished )
+						_currentMenu = new MapMenu( this );
+					else
+						_currentMenu = new StoryTellingMenu( this, 1, null, new MainMenu( this ) );
 					_currentLevel = null;
 				}
 			}

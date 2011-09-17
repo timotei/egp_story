@@ -67,6 +67,8 @@ namespace egp_story
 		public static Texture2D LoseMessage { get; private set; }
 		public static Texture2D WinMessage { get; private set; }
 
+		public static Texture2D[][] Stories;
+
 		/// <summary>
 		/// A blank 1x1 pixel (used by default for drawing lines)
 		/// </summary>
@@ -133,6 +135,14 @@ namespace egp_story
 			BlankPixel.GetData<Color>( bPix );
 			bPix[0].R = bPix[0].G = bPix[0].B = bPix[0].A = 255;
 			BlankPixel.SetData<Color>( bPix );
+
+			// stories
+			Stories = new Texture2D[][] { 
+				new Texture2D[] { content.Load<Texture2D>( "gfx/story/story0_0" ),
+					content.Load<Texture2D>( "gfx/story/story0_1" ),
+					content.Load<Texture2D>( "gfx/story/story0_2" ) },
+				new Texture2D[] { content.Load<Texture2D> ( "gfx/story/story1_0" ) }
+			};
 		}
 	}
 }
