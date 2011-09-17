@@ -106,6 +106,8 @@ namespace egp_story
 					// check if we can move there.
 					Vector2 newPosition = ( Position + FacingDirection.ToVelocity( ) * 2 );
 					Rectangle newBoundingBox = CurrentAnimation.FrameBoundingBox;
+					newBoundingBox.Width -= 10;
+					newBoundingBox.Height -= 10;
 					newBoundingBox.Offset( ( int ) newPosition.X, ( int ) newPosition.Y );
 
 					if ( levelMap.CheckRectangleBounds( newBoundingBox ) ) {
