@@ -25,12 +25,14 @@ namespace egp_story
 			AnimatedSprite[] walkAnims, AnimatedSprite[] projectileAnims )
 			: base( game, initialFacingDirection, attackAnims, walkAnims, projectileAnims )
 		{
+			IsEnemy = true;
 		}
 
 		public Enemy( Enemy other ) :
 			base( other._game )
 		{
 			FacingDirection = other.FacingDirection;
+			IsEnemy = true;
 
 			if ( other.AttackEastAnim != null ) AttackEastAnim = new AnimatedSprite( other.AttackEastAnim );
 			if ( other.AttackNorthAnim != null ) AttackNorthAnim = new AnimatedSprite( other.AttackNorthAnim );

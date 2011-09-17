@@ -34,6 +34,7 @@ namespace egp_story
 
 		public AnimatedSprite CurrentAnimation { get; set; }
 		public bool IsDead { get; set; }
+		public bool IsEnemy { get; set; }
 
 		public Rectangle BoundingBox
 		{

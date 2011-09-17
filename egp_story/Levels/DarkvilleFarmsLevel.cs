@@ -12,16 +12,10 @@
 */
 
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Graphics;
 namespace egp_story.Levels
 {
-	public class DarkvilleFarmsLevel : IStoryLevel
+	public class DarkvilleFarmsLevel : StoryLevel
 	{
-		#region IStoryLevel Members
-		private LevelMap _map;
-		private bool _gameEnded;
-		private bool _won;
-
 		public DarkvilleFarmsLevel( Game game )
 		{
 			Player player = new Player( game, CardinalDirection.SOUTH,
@@ -48,28 +42,7 @@ namespace egp_story.Levels
 					null
 				);
 
-			_map = new LevelMap( player, bugEnemy, Assets.DarkvilleFarmsBackground, Assets.DarkvilleFarmsBackgroundMask );
+			LevelMap = new LevelMap( player, bugEnemy, Assets.DarkvilleFarmsBackground, Assets.DarkvilleFarmsBackgroundMask );
 		}
-
-		public void Update( GameTime gameTime )
-		{
-			if ( !_gameEnded ) {
-				_map.Update( gameTime );
-
-				if ( _map.ActorObjects.Count == 0 ) {
-					_gameEnded = true;
-				}
-			}
-		}
-
-		public void Draw( SpriteBatch spriteBatch, GameTime gameTime )
-		{
-			_map.Draw( spriteBatch, gameTime );
-
-			if ( _gameEnded ) {
-
-			}
-		}
-		#endregion
 	}
 }

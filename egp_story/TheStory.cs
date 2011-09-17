@@ -26,7 +26,7 @@ namespace egp_story
 		private GraphicsDeviceManager graphics;
 		private SpriteBatch spriteBatch;
 
-		private IStoryLevel _currentLevel;
+		private StoryLevel _currentLevel;
 		private IMenu _currentMenu;
 
 		public TheStory( )
