@@ -22,13 +22,6 @@ namespace egp_story
 	{
 		private Queue<Projectile> _projectilesShot;
 
-		/// <summary>
-		/// 
-		/// </summary>
-		/// <param name="initialFacingDirection"></param>
-		/// <param name="attackAnims">The order of the animations: North, South, East</param>
-		/// <param name="walkAnims">The order of the animations: North, South, East</param>
-		/// <param name="projectileAnims">The order of the animations: North, South, East</param>
 		public Player( Game parent, CardinalDirection initialFacingDirection, AnimatedSprite[] attackAnims,
 			AnimatedSprite[] walkAnims, AnimatedSprite[] projectileAnims )
 			: base( parent, initialFacingDirection, attackAnims, walkAnims, projectileAnims )

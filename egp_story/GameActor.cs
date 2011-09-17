@@ -61,6 +61,13 @@ namespace egp_story
 			_graphics = ( GraphicsDeviceManager ) game.Services.GetService( typeof( IGraphicsDeviceManager ) );
 		}
 
+		/// <summary>
+		/// 
+		/// </summary>
+		/// <param name="initialFacingDirection"></param>
+		/// <param name="attackAnims">The order of the animations: North, South, East</param>
+		/// <param name="walkAnims">The order of the animations: North, South, East</param>
+		/// <param name="projectileAnims">The order of the animations: North, South, East</param>
 		public GameActor( Game game, CardinalDirection initialFacingDirection, AnimatedSprite[] attackAnims,
 			AnimatedSprite[] walkAnims, AnimatedSprite[] projectileAnims )
 			: this( game )

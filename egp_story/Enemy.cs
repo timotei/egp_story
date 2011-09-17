@@ -19,6 +19,8 @@ namespace egp_story
 	public class Enemy : GameActor
 	{
 		private int _lastTimeMoved = 0;
+		private Vector2 _lastDisplacement;
+		private int _lastDisplacementUsedTimes;
 		private static Random _random = new Random( );
 
 		public Enemy( Game game, CardinalDirection initialFacingDirection, AnimatedSprite[] attackAnims,
@@ -58,8 +60,16 @@ namespace egp_story
 				int steps = 0; // bound the maximum times to retry
 				Vector2 displacement = new Vector2( );
 				while ( steps < 10 ) {
-					displacement.X = _random.Next( 5 ) - 2;
-					displacement.Y = _random.Next( 5 ) - 2;
+					if ( steps == 0 && _lastDisplacementUsedTimes < 10 ) {
+						// try last displacement
+						displacement = _lastDisplacement;
+						++_lastDisplacementUsedTimes;
+					}
+					else {
+						displacement.X = _random.Next( 5 ) - 2;
+						displacement.Y = _random.Next( 5 ) - 2;
+						_lastDisplacementUsedTimes = 0;
+					}
 
 					Rectangle newBoundingBox = BoundingBox;
 					newBoundingBox.Offset( ( int ) displacement.X, ( int ) displacement.Y );
@@ -69,7 +79,7 @@ namespace egp_story
 					}
 					else {
 						// invert the move direction
-						displacement *= -2;
+						displacement *= -1;
 
 						newBoundingBox.Offset( ( int ) displacement.X, ( int ) displacement.Y );
 						if ( IsNewPositionOK( levelMap, newBoundingBox ) ) {
@@ -79,6 +89,9 @@ namespace egp_story
 					}
 					++steps;
 				}
+
+				// save displacement
+				_lastDisplacement = displacement;
 
 				if ( displacement.Y == 0 ) {
 					if ( displacement.X > 0 ) FacingDirection = CardinalDirection.WEST;
