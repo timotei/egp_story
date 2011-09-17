@@ -12,6 +12,7 @@
 */
 
 using System;
+using egp_story.Levels;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -85,15 +86,13 @@ namespace egp_story.Menus
 
 			if ( Keyboard.GetState( ).IsKeyDown2( Keys.Enter ) ) {
 				switch ( _currentLocation ) {
-					case 0: break;
-					case 0: break;
-					case 0: break;
-					case 0: break;
-					case 0: break;
+					case 0: SelectedLevel = new ViridesPuirr( Game ); break;
+					case 1: SelectedLevel = new Calipuirr( Game ); break;
+					case 2: SelectedLevel = new EllyuteionLake( Game ); break;
+					case 3: SelectedLevel = new MirrosHills( Game ); break;
+					case 4: SelectedLevel = new Pandorashys( Game ); break;
 					default: break;
 				}
-
-
 			}
 
 		}

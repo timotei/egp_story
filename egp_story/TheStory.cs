@@ -69,7 +69,6 @@ namespace egp_story
 				if ( _currentLevel.LevelEnded ) {
 					_currentLevel = null;
 				}
-
 			}
 			else if ( _currentMenu != null ) {
 				_currentMenu.Update( gameTime );

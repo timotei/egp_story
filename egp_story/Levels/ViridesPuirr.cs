@@ -12,11 +12,13 @@
 */
 
 using Microsoft.Xna.Framework;
+
 namespace egp_story.Levels
 {
-	public class DarkvilleFarmsLevel : StoryLevel
+	public class ViridesPuirr : StoryLevel
 	{
-		public DarkvilleFarmsLevel( Game game )
+		public ViridesPuirr( Game game )
+			: base( game )
 		{
 			Player player = new Player( game, CardinalDirection.SOUTH,
 				new[] {

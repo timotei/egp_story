@@ -20,9 +20,15 @@ namespace egp_story.Levels
 	{
 		public bool LevelEnded { get; protected set; }
 		public LevelMap LevelMap { get; protected set; }
+		public Game Game { get; protected set; }
 
 		protected bool _gameEnded;
 		protected bool _won;
+
+		public StoryLevel( Game game )
+		{
+			Game = game;
+		}
 
 		#region IUpdateable Members
 

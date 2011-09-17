@@ -118,10 +118,14 @@
     <Compile Include="IDrawable.cs" />
     <Compile Include="IUpdateable.cs" />
     <Compile Include="LevelMap.cs" />
+    <Compile Include="Levels\Calipuirr.cs" />
+    <Compile Include="Levels\EllyuteionLake.cs" />
+    <Compile Include="Levels\MirrosHills.cs" />
+    <Compile Include="Levels\Pandorashys.cs" />
+    <Compile Include="Levels\ViridesPuirr.cs" />
     <Compile Include="Menus\HowToPlayMenu.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Extensions\KeyboardStateExtensions.cs" />
-    <Compile Include="Levels\DarkvilleFarmsLevel.cs" />
     <Compile Include="Levels\StoryLevel.cs" />
     <Compile Include="Menus\Menu.cs" />
     <Compile Include="Menus\MainMenu.cs" />
