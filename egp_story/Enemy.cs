@@ -60,7 +60,7 @@ namespace egp_story
 				int steps = 0; // bound the maximum times to retry
 				Vector2 displacement = new Vector2( );
 				while ( steps < 10 ) {
-					if ( steps == 0 && _lastDisplacementUsedTimes < 10 ) {
+					if ( steps == 0 && _lastDisplacementUsedTimes < 20 ) {
 						// try last displacement
 						displacement = _lastDisplacement;
 						++_lastDisplacementUsedTimes;
