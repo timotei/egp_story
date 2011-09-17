@@ -19,6 +19,10 @@ namespace egp_story
 	public class Assets
 	{
 		public static SpriteFont MainFont { get; private set; }
+		public static SpriteFont StyledFont { get; private set; }
+
+		public static Texture2D MainMenuBackground { get; private set; }
+		public static Texture2D MainMenuFrame { get; private set; }
 
 		public static Texture2D WorldMapTexture { get; private set; }
 		public static Texture2D Dot { get; private set; }
@@ -53,9 +57,13 @@ namespace egp_story
 		public static void LoadAssets( ContentManager content )
 		{
 			MainFont = content.Load<SpriteFont>( "Arial" );
-			WorldMapTexture = content.Load<Texture2D>( "WorldMap" );
+			StyledFont = content.Load<SpriteFont>( "Trinigan" );
 
-			Dot = content.Load<Texture2D>( "dot" );
+			MainMenuBackground = content.Load<Texture2D>( "gfx/main_menu_background" );
+			MainMenuFrame = content.Load<Texture2D>( "gfx/main_menu_frame" );
+			WorldMapTexture = content.Load<Texture2D>( "gfx/WorldMap" );
+
+			Dot = content.Load<Texture2D>( "gfx/dot" );
 
 			SilverboltShootSouth = content.Load<Texture2D>( "gfx/silverbolt/shoot_s" );
 			SilverboltShootNorth = content.Load<Texture2D>( "gfx/silverbolt/shoot_n" );

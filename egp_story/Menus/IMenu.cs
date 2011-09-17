@@ -11,9 +11,12 @@
    See the COPYING file for more details.
 */
 
+using egp_story.Levels;
 namespace egp_story.Menus
 {
 	public interface IMenu : IDrawable, IUpdateable
 	{
+		StoryLevel SelectedLevel { get; }
+		IMenu SelectedMenu { get; }
 	}
 }

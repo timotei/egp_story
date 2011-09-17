@@ -53,7 +53,7 @@ namespace egp_story
 			spriteBatch = new SpriteBatch( GraphicsDevice );
 			Assets.LoadAssets( Content );
 
-			_currentLevel = new DarkvilleFarmsLevel( this );
+			_currentMenu = new MainMenu( );
 		}
 
 		protected override void Update( GameTime gameTime )
@@ -65,9 +65,22 @@ namespace egp_story
 
 			if ( _currentLevel != null ) {
 				_currentLevel.Update( gameTime );
+
+				if ( _currentLevel.LevelEnded ) {
+					_currentLevel = null;
+				}
+
 			}
 			else if ( _currentMenu != null ) {
 				_currentMenu.Update( gameTime );
+
+				if ( _currentMenu.SelectedLevel != null ) {
+					_currentLevel = _currentMenu.SelectedLevel;
+				}
+
+				if ( _currentMenu.SelectedMenu != null ) {
+					_currentMenu = _currentMenu.SelectedMenu;
+				}
 			}
 
 			Keyboard.GetState( ).UpdateState( );

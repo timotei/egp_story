@@ -97,5 +97,13 @@ namespace egp_story.Menus
 				Assets.Dot.Bounds.Center.ToVector2( ) );
 		}
 		#endregion
+
+		#region IMenu Members
+
+		public Levels.StoryLevel SelectedLevel { get; private set; }
+
+		public IMenu SelectedMenu { get; private set; }
+
+		#endregion
 	}
 }
