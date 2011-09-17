@@ -171,13 +171,13 @@ namespace egp_story
 		{
 			return new Player( game, CardinalDirection.SOUTH,
 				new[] {
-					new AnimatedSprite( Assets.HarapAlbShootNorth, 10, 20 ),
-					new AnimatedSprite( Assets.HarapAlbShootSouth, 10, 20 ),
-					new AnimatedSprite( Assets.HarapAlbShootEast, 10, 20 ) },
+					new AnimatedSprite( Assets.HarapAlbShootNorth, 6, 15 ),
+					new AnimatedSprite( Assets.HarapAlbShootSouth, 6, 15 ),
+					new AnimatedSprite( Assets.HarapAlbShootEast, 6, 15 ) },
 				new[] { 
-					new AnimatedSprite( Assets.HarapAlbWalkNorth, 1, 10 ),
-					new AnimatedSprite( Assets.HarapAlbWalkSouth, 1, 10 ),
-					new AnimatedSprite( Assets.HarapAlbWalkEast, 1, 10 )},
+					new AnimatedSprite( Assets.HarapAlbWalkNorth, 6, 10 ),
+					new AnimatedSprite( Assets.HarapAlbWalkSouth, 6, 10 ),
+					new AnimatedSprite( Assets.HarapAlbWalkEast, 6, 10 )},
 				new[] { 
 					new AnimatedSprite( Assets.ArrowNorth, 1, 1),
 					new AnimatedSprite( Assets.ArrowSouth, 1, 1),
