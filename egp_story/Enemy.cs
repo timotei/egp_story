@@ -60,7 +60,7 @@ namespace egp_story
 				int steps = 0; // bound the maximum times to retry
 				Vector2 displacement = new Vector2( );
 				while ( steps < 10 ) {
-					if ( steps == 0 && _lastDisplacementUsedTimes < 10 ) {
+					if ( steps == 0 && _lastDisplacementUsedTimes < 7 ) {
 						// try last displacement
 						displacement = _lastDisplacement;
 						++_lastDisplacementUsedTimes;
@@ -70,8 +70,8 @@ namespace egp_story
 						displacement.X = MathHelper.Clamp( displacement.X, -1, 1 );
 						displacement.Y = MathHelper.Clamp( displacement.Y, -1, 1 );
 
-						displacement.X *= _random.Next( 3 );
-						displacement.Y *= ( displacement.X == 0 ? _random.Next( 3 ) : 0 );
+						displacement.X *= _random.Next( 4 ) - 1;
+						displacement.Y *= ( displacement.X == 0 ? _random.Next( 4 ) - 1 : 0 );
 
 						_lastDisplacementUsedTimes = 0;
 					}
