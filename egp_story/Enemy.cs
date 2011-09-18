@@ -60,14 +60,19 @@ namespace egp_story
 				int steps = 0; // bound the maximum times to retry
 				Vector2 displacement = new Vector2( );
 				while ( steps < 10 ) {
-					if ( steps == 0 && _lastDisplacementUsedTimes < 20 ) {
+					if ( steps == 0 && _lastDisplacementUsedTimes < 10 ) {
 						// try last displacement
 						displacement = _lastDisplacement;
 						++_lastDisplacementUsedTimes;
 					}
 					else {
-						displacement.X = _random.Next( 5 ) - 2;
-						displacement.Y = displacement.X == 0 ? _random.Next( 5 ) - 2 : 0;
+						displacement = levelMap.ThePlayer.Position - Position;
+						displacement.X = MathHelper.Clamp( displacement.X, -1, 1 );
+						displacement.Y = MathHelper.Clamp( displacement.Y, -1, 1 );
+
+						displacement.X *= _random.Next( 3 );
+						displacement.Y *= ( displacement.X == 0 ? _random.Next( 3 ) : 0 );
+
 						_lastDisplacementUsedTimes = 0;
 					}
 
@@ -75,17 +80,15 @@ namespace egp_story
 					newBoundingBox.Offset( ( int ) displacement.X, ( int ) displacement.Y );
 					if ( IsNewPositionOK( levelMap, newBoundingBox ) ) {
 						Position += displacement;
+
+						if ( levelMap.ThePlayer.BoundingBox.Intersects( newBoundingBox ) ) {
+							levelMap.ThePlayer.IsDead = true;
+						}
 						break;
 					}
 					else {
-						// invert the move direction
-						displacement *= -1;
-
-						newBoundingBox.Offset( ( int ) displacement.X, ( int ) displacement.Y );
-						if ( IsNewPositionOK( levelMap, newBoundingBox ) ) {
-							Position += displacement;
-							break;
-						}
+						// discard the last used displacement
+						_lastDisplacementUsedTimes = 500;
 					}
 					++steps;
 				}
@@ -113,7 +116,6 @@ namespace egp_story
 		private bool IsNewPositionOK( LevelMap levelMap, Rectangle rectangle )
 		{
 			return ( levelMap.CheckRectangleBounds( rectangle ) &&
-					!levelMap.ThePlayer.BoundingBox.Intersects( rectangle ) &&
 					CheckHitAndRemove( levelMap, rectangle, false ) == null );
 		}
 
