@@ -10,10 +10,9 @@
 
    See the COPYING file for more details.
 */
-
-
 using System;
 using Microsoft.Xna.Framework;
+
 namespace egp_story
 {
 	public class Enemy : GameActor

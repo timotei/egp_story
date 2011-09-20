@@ -1,5 +1,4 @@
-﻿using Microsoft.Xna.Framework;
-/*
+﻿/*
    Copyright (C) 2011 by Timotei Dolean <timotei21@gmail.com>
 
    This program is free software; you can redistribute it and/or modify
@@ -11,6 +10,7 @@
 
    See the COPYING file for more details.
 */
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
